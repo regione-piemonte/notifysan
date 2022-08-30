@@ -1,0 +1,48 @@
+{
+  "app_name": "events",
+  "server_port": 9094,
+  "sdp": {
+    "record_limit": 1000000,
+    "request_components_limit": 500
+  },
+  "log4js": {
+    "pm2": true,
+    "appenders": {
+      "fileAppender": {
+        "filename": "/appserv/unp/logs/events.log"
+      },
+      "statusAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/status.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": { "type": "pattern", "pattern": "%d %[[%5.10p]%] pid:%z %f{1}:%l - %m" }
+      },
+      "tosdpAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/to_sdp.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": { "type": "pattern", "pattern": "%d %[[%5.10p]%] pid:%z %f{1}:%l - %m" }
+      }
+    },
+    "categories": {
+      "status": {
+        "appenders": [
+          "statusAppender",
+          "consoleAppender"
+        ],
+        "level": "debug",
+        "enableCallStack": true
+      },
+      "to_sdp": {
+        "appenders": [
+          "tosdpAppender",
+          "consoleAppender"
+        ],
+        "level": "debug",
+        "enableCallStack": true
+      }
+    }
+  }
+}

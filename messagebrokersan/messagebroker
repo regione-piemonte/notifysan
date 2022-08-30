@@ -1,0 +1,2 @@
+cd /appserv/unp/notify/messagebroker/src
+node messagebroker.js >/dev/null 2>&1 &

@@ -1,0 +1,112 @@
+{
+  "db": {  
+    
+    "preferences": {
+      "host": "10.138.154.6",
+      "port": 10221,
+      "user": "unppreferences",
+      "password": "mypass",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unppreferences"
+    },
+    "events": {
+      "host": "10.138.154.6",
+      "port": 10221,
+      "user": "unpevents",
+      "password": "mypass",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpevents"
+    },
+    "audit": {
+      "host": "10.138.154.6",
+      "port": 10221,
+      "user": "unpaudit",
+      "password": "mypass",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpaudit"
+    },
+    "mex": {
+      "host": "10.138.154.6",
+      "port": 10221,
+      "user": "unpmex",
+      "password": "mypass",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpmex"
+    }
+  },
+  "send_scheduled":{
+    "not_sent_messages_path":"C:/CSI Piemonte/Progetti/notify/broadcast/not_sent_messages",
+    "sent_messages_path":"C:/CSI Piemonte/Progetti/notify/broadcast/sent_messages"
+  },
+  "mb": {
+    "request_limit": 20000000,
+    "queues": {
+      "messages": "http://localhost:8080/api/v1/topics/messages",
+      "events": "http://localhost:8080/api/v1/topics/events",
+      "templates": "http://localhost:8080/api/v1/keys/template:email"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzgzYjMzMWEtMGQ0Ni00NjZiLWE2ZGUtNDRhNzdhNTczNWE2IiwicHJlZmVyZW5jZV9zZXJ2aWNlX25hbWUiOiJicm9hZGNhc3QiLCJleHAiOjI1MzQwMjIxMDgwMCwiaWF0IjoxNTE5ODIyNzA0LCJhcHBsaWNhdGlvbnMiOnsibWIiOlsiZW5xdWV1ZSIsImRlcXVldWUiXSwibWV4IjpbInJlYWQiLCJ3cml0ZSIsImFkbWluIl0sInByZWZlcmVuY2VzIjpbInJlYWQiLCJ3cml0ZSIsImFkbWluIl19fQ.pii6zxEP00NinXsz5AT9l2ygYOgYCFQpBGgShQU-P-4"
+  },
+  "security": {
+    "secret": "dev"
+  },
+  "log4js": {
+    "appenders": {
+      "consoleAppender": {
+        "type": "console",
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      },
+      "fileAppender": {
+        "type": "file",
+        "filename": "../logs/broadcast.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      },
+      "schedFileAppender": {
+        "type": "file",
+        "filename": "../logs/send-scheduled.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "fileAppender",
+          "consoleAppender"
+        ],
+        "level": "debug"
+      },
+      "send-sched": {
+        "appenders": [
+          "schedFileAppender",
+          "consoleAppender"
+        ],
+        "level": "debug"
+      }
+    }
+  }
+}

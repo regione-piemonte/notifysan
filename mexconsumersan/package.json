@@ -1,0 +1,16 @@
+{
+  "name": "mex_consumer",
+  "version": "1.0.0",
+  "description": "consumer of the queue the contains messages to be processed and inserted on database",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd src && node mexconsumer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "log4js": "^6.3.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}

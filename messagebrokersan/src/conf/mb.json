@@ -1,0 +1,18 @@
+{
+  "app_name": "mb",
+  "server_port": 8080,
+  "timeout": 10,
+  "request_limit": "20mb",
+  "redis": {
+    "keyPrefix": "mb:",
+    "do_setup": true
+  },
+  "security": {
+    "blacklist": {
+      "url": "blacklist"
+    }
+  },
+  "log4js": {
+    "pm2": true
+  }
+}

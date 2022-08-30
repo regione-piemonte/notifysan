@@ -1,0 +1,2 @@
+cd /appserv/unp/notify/preferences/src
+node preferences.js >/dev/null 2>&1 &

@@ -1,0 +1,2102 @@
+[
+  {
+    "uuid": "f4443bb8-25c2-47d5-b594-18a0ac583fe7",
+    "payload": {
+      "id": "5ad377ef-71c2-4ede-b6b6-bed435a8b561",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.18902507880513508",
+        "body": "corpo della mail 0.18902507880513508<br>corpo della mail 0.18902507880513508<br>"
+      },
+      "push": {
+        "title": "Titolo push0.18902507880513508",
+        "body": "corpo push0.18902507880513508"
+      },
+      "mex": {
+        "title": "test case message0.18902507880513508",
+        "body": "test case message0.18902507880513508"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c8b0eb3c-886e-4c30-88d6-771669a7c2ce",
+    "payload": {
+      "id": "8c4fa780-3668-4513-94e4-a4c7bae7adae",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.9679531541449025",
+        "body": "corpo della mail 0.9679531541449025<br>corpo della mail 0.9679531541449025<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9679531541449025",
+        "body": "corpo push0.9679531541449025"
+      },
+      "mex": {
+        "title": "test case message0.9679531541449025",
+        "body": "test case message0.9679531541449025"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "dc5f78a1-1ea9-4b57-8d78-f7b2e2b79f31",
+    "payload": {
+      "id": "bf08efeb-339b-44a6-87d7-004f4b847603",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.9670284205959512",
+        "body": "corpo della mail 0.9670284205959512<br>corpo della mail 0.9670284205959512<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9670284205959512",
+        "body": "corpo push0.9670284205959512"
+      },
+      "mex": {
+        "title": "test case message0.9670284205959512",
+        "body": "test case message0.9670284205959512"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "bb0e8803-51dc-493e-ac5c-375c61251307",
+    "payload": {
+      "id": "dbde3421-4185-4efa-bc5a-fc923efeeae8",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.8830830308409479",
+        "body": "corpo della mail 0.8830830308409479<br>corpo della mail 0.8830830308409479<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8830830308409479",
+        "body": "corpo push0.8830830308409479"
+      },
+      "mex": {
+        "title": "test case message0.8830830308409479",
+        "body": "test case message0.8830830308409479"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "0a4a9b32-9de0-40c8-89de-1d055d9160c0",
+    "payload": {
+      "id": "6b5180f0-e8c6-4258-a2cd-46242806301e",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.42576759285049515",
+        "body": "corpo della mail 0.42576759285049515<br>corpo della mail 0.42576759285049515<br>"
+      },
+      "push": {
+        "title": "Titolo push0.42576759285049515",
+        "body": "corpo push0.42576759285049515"
+      },
+      "mex": {
+        "title": "test case message0.42576759285049515",
+        "body": "test case message0.42576759285049515"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "71841a69-ab4f-419c-b6d3-74865cdfd4f4",
+    "payload": {
+      "id": "8d1ce244-b15f-4c54-93c7-eaa65b7143ae",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.8083345337823269",
+        "body": "corpo della mail 0.8083345337823269<br>corpo della mail 0.8083345337823269<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8083345337823269",
+        "body": "corpo push0.8083345337823269"
+      },
+      "mex": {
+        "title": "test case message0.8083345337823269",
+        "body": "test case message0.8083345337823269"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "fe743e3b-8a64-4cb0-b4e6-65f4167b5b63",
+    "payload": {
+      "id": "4268dd4c-7b99-4ba0-a712-6de8a9634a1e",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.899402139921684",
+        "body": "corpo della mail 0.899402139921684<br>corpo della mail 0.899402139921684<br>"
+      },
+      "push": {
+        "title": "Titolo push0.899402139921684",
+        "body": "corpo push0.899402139921684"
+      },
+      "mex": {
+        "title": "test case message0.899402139921684",
+        "body": "test case message0.899402139921684"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "9263f512-5c15-4fc9-ada1-d4b5bf53030d",
+    "payload": {
+      "id": "bda7759e-66a3-4e7e-ad74-d835613cf04c",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.6802304563764567",
+        "body": "corpo della mail 0.6802304563764567<br>corpo della mail 0.6802304563764567<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6802304563764567",
+        "body": "corpo push0.6802304563764567"
+      },
+      "mex": {
+        "title": "test case message0.6802304563764567",
+        "body": "test case message0.6802304563764567"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "f00ec603-d3a4-414a-b403-283b167b3f3a",
+    "payload": {
+      "id": "1a47f351-2ac2-48a5-a440-f0c1b8c851b9",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.2168407284728755",
+        "body": "corpo della mail 0.2168407284728755<br>corpo della mail 0.2168407284728755<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2168407284728755",
+        "body": "corpo push0.2168407284728755"
+      },
+      "mex": {
+        "title": "test case message0.2168407284728755",
+        "body": "test case message0.2168407284728755"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "7526be4a-88e1-43de-8c5c-2455d2cced69",
+    "payload": {
+      "id": "3e3e38da-c31b-444a-b0ec-5054424bdc46",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.7422450677415064",
+        "body": "corpo della mail 0.7422450677415064<br>corpo della mail 0.7422450677415064<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7422450677415064",
+        "body": "corpo push0.7422450677415064"
+      },
+      "mex": {
+        "title": "test case message0.7422450677415064",
+        "body": "test case message0.7422450677415064"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "12bc7cd8-c08e-4cf3-b465-076ad672c50c",
+    "payload": {
+      "id": "272bffb4-2215-4344-a18a-8d0be5381d2b",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.22548082581003492",
+        "body": "corpo della mail 0.22548082581003492<br>corpo della mail 0.22548082581003492<br>"
+      },
+      "push": {
+        "title": "Titolo push0.22548082581003492",
+        "body": "corpo push0.22548082581003492"
+      },
+      "mex": {
+        "title": "test case message0.22548082581003492",
+        "body": "test case message0.22548082581003492"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c8a408d4-a43c-49d2-a506-acc839df082c",
+    "payload": {
+      "id": "3f009a38-a8f4-4c0c-9326-ee00c369b18d",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.7961211364245859",
+        "body": "corpo della mail 0.7961211364245859<br>corpo della mail 0.7961211364245859<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7961211364245859",
+        "body": "corpo push0.7961211364245859"
+      },
+      "mex": {
+        "title": "test case message0.7961211364245859",
+        "body": "test case message0.7961211364245859"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "ba7edb56-410a-490d-911a-d4a2ba258d94",
+    "payload": {
+      "id": "8164b7bb-98e4-41eb-9552-15abdcc5ba9d",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.6723556220705915",
+        "body": "corpo della mail 0.6723556220705915<br>corpo della mail 0.6723556220705915<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6723556220705915",
+        "body": "corpo push0.6723556220705915"
+      },
+      "mex": {
+        "title": "test case message0.6723556220705915",
+        "body": "test case message0.6723556220705915"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "19a6efef-097d-4417-b0fc-8b411873e5ba",
+    "payload": {
+      "id": "6a306a20-6f11-44c4-be1b-9dafc86753f2",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.3575472541021465",
+        "body": "corpo della mail 0.3575472541021465<br>corpo della mail 0.3575472541021465<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3575472541021465",
+        "body": "corpo push0.3575472541021465"
+      },
+      "mex": {
+        "title": "test case message0.3575472541021465",
+        "body": "test case message0.3575472541021465"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "ed95cc66-66f1-4997-b66c-b98cba0e5a6c",
+    "payload": {
+      "id": "7385794d-a598-476f-8b53-f2c9a0c300e9",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.8064240728808663",
+        "body": "corpo della mail 0.8064240728808663<br>corpo della mail 0.8064240728808663<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8064240728808663",
+        "body": "corpo push0.8064240728808663"
+      },
+      "mex": {
+        "title": "test case message0.8064240728808663",
+        "body": "test case message0.8064240728808663"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "d3d78c40-9202-4d33-8e2b-1ba29acd0958",
+    "payload": {
+      "id": "3cb47717-35af-4c3c-9808-bb55fb869979",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.3783050377390813",
+        "body": "corpo della mail 0.3783050377390813<br>corpo della mail 0.3783050377390813<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3783050377390813",
+        "body": "corpo push0.3783050377390813"
+      },
+      "mex": {
+        "title": "test case message0.3783050377390813",
+        "body": "test case message0.3783050377390813"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "064c35a2-b69f-49b9-b0a8-4c3ab5bf0060",
+    "payload": {
+      "id": "f3f98241-6fa9-4590-b960-af08c0a0d2c1",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.03072878242340682",
+        "body": "corpo della mail 0.03072878242340682<br>corpo della mail 0.03072878242340682<br>"
+      },
+      "push": {
+        "title": "Titolo push0.03072878242340682",
+        "body": "corpo push0.03072878242340682"
+      },
+      "mex": {
+        "title": "test case message0.03072878242340682",
+        "body": "test case message0.03072878242340682"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "9eb5053f-07e0-4578-a33a-4b8ce3746e6f",
+    "payload": {
+      "id": "fd701ca5-17b4-4637-945e-a4a7d18388b2",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.7584083546681577",
+        "body": "corpo della mail 0.7584083546681577<br>corpo della mail 0.7584083546681577<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7584083546681577",
+        "body": "corpo push0.7584083546681577"
+      },
+      "mex": {
+        "title": "test case message0.7584083546681577",
+        "body": "test case message0.7584083546681577"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "62f23881-512a-4646-a961-8328c2f7a0b0",
+    "payload": {
+      "id": "104cc25d-8760-4317-8d68-27d1e076f387",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.2944129530432149",
+        "body": "corpo della mail 0.2944129530432149<br>corpo della mail 0.2944129530432149<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2944129530432149",
+        "body": "corpo push0.2944129530432149"
+      },
+      "mex": {
+        "title": "test case message0.2944129530432149",
+        "body": "test case message0.2944129530432149"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "a7a71cff-4ed4-496f-a70d-94d020ddcdfe",
+    "payload": {
+      "id": "8a46cca2-81dd-43f7-a256-901d38996e38",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.6866141973109914",
+        "body": "corpo della mail 0.6866141973109914<br>corpo della mail 0.6866141973109914<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6866141973109914",
+        "body": "corpo push0.6866141973109914"
+      },
+      "mex": {
+        "title": "test case message0.6866141973109914",
+        "body": "test case message0.6866141973109914"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "b8f5574c-a174-41e7-a843-09a0e99ec502",
+    "payload": {
+      "id": "996f7e63-d5f2-47fb-997a-f202731d3791",
+      "user_id": "AAA",
+      "email": {
+        "subject": "subject email 0.5525429689780381",
+        "body": "corpo della mail 0.5525429689780381<br>corpo della mail 0.5525429689780381<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5525429689780381",
+        "body": "corpo push0.5525429689780381"
+      },
+      "mex": {
+        "title": "test case message0.5525429689780381",
+        "body": "test case message0.5525429689780381"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c1a9e3fe-3c7b-4a2b-9ac5-692375e008bb",
+    "payload": {
+      "id": "c70151f1-c363-4787-9bf9-36ae27275a44",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.41897329002259287",
+        "body": "corpo della mail 0.41897329002259287<br>corpo della mail 0.41897329002259287<br>"
+      },
+      "push": {
+        "title": "Titolo push0.41897329002259287",
+        "body": "corpo push0.41897329002259287"
+      },
+      "mex": {
+        "title": "test case message0.41897329002259287",
+        "body": "test case message0.41897329002259287"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "966e67af-0828-4241-a65c-6565760a54ff",
+    "payload": {
+      "id": "817b2c1a-b66e-4482-ade1-2c4028bc2581",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.41566173014797925",
+        "body": "corpo della mail 0.41566173014797925<br>corpo della mail 0.41566173014797925<br>"
+      },
+      "push": {
+        "title": "Titolo push0.41566173014797925",
+        "body": "corpo push0.41566173014797925"
+      },
+      "mex": {
+        "title": "test case message0.41566173014797925",
+        "body": "test case message0.41566173014797925"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "e0d908e7-b3b4-4799-adbf-543ddda84980",
+    "payload": {
+      "id": "e322456a-6354-4e73-b704-555cf7bc803c",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.8155321217485729",
+        "body": "corpo della mail 0.8155321217485729<br>corpo della mail 0.8155321217485729<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8155321217485729",
+        "body": "corpo push0.8155321217485729"
+      },
+      "mex": {
+        "title": "test case message0.8155321217485729",
+        "body": "test case message0.8155321217485729"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "5fbb34ed-2042-4c46-901c-eb0874c73216",
+    "payload": {
+      "id": "ac877895-adde-4ca0-b089-2db621dacb2c",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.3092580815990189",
+        "body": "corpo della mail 0.3092580815990189<br>corpo della mail 0.3092580815990189<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3092580815990189",
+        "body": "corpo push0.3092580815990189"
+      },
+      "mex": {
+        "title": "test case message0.3092580815990189",
+        "body": "test case message0.3092580815990189"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c5713480-e4b1-4679-b7e8-6f3fc14ee758",
+    "payload": {
+      "id": "2eb89ead-e5ff-4ed1-936f-bbfe14513b58",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.5745255712875854",
+        "body": "corpo della mail 0.5745255712875854<br>corpo della mail 0.5745255712875854<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5745255712875854",
+        "body": "corpo push0.5745255712875854"
+      },
+      "mex": {
+        "title": "test case message0.5745255712875854",
+        "body": "test case message0.5745255712875854"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "47880945-5654-4f4f-8fb2-daa31bbcbbb6",
+    "payload": {
+      "id": "8aa539a2-8743-4925-8eb6-0976a2ccd51f",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.588672383219083",
+        "body": "corpo della mail 0.588672383219083<br>corpo della mail 0.588672383219083<br>"
+      },
+      "push": {
+        "title": "Titolo push0.588672383219083",
+        "body": "corpo push0.588672383219083"
+      },
+      "mex": {
+        "title": "test case message0.588672383219083",
+        "body": "test case message0.588672383219083"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "bbaf5229-5e7e-4708-8030-bb866a0a03ba",
+    "payload": {
+      "id": "5b833997-5d56-4cd0-89c0-f68b72f7f9eb",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.8886066479325083",
+        "body": "corpo della mail 0.8886066479325083<br>corpo della mail 0.8886066479325083<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8886066479325083",
+        "body": "corpo push0.8886066479325083"
+      },
+      "mex": {
+        "title": "test case message0.8886066479325083",
+        "body": "test case message0.8886066479325083"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "13aabf85-abb7-4fde-8b7d-0d49229880dc",
+    "payload": {
+      "id": "d123ffa1-4cfb-4749-8513-e4230c880441",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.7739059892617597",
+        "body": "corpo della mail 0.7739059892617597<br>corpo della mail 0.7739059892617597<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7739059892617597",
+        "body": "corpo push0.7739059892617597"
+      },
+      "mex": {
+        "title": "test case message0.7739059892617597",
+        "body": "test case message0.7739059892617597"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "dd95c34d-86e2-457d-8c62-04063ab2e8dc",
+    "payload": {
+      "id": "dfb3b37a-f612-495e-bce3-e146e75368b7",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.43312477357203827",
+        "body": "corpo della mail 0.43312477357203827<br>corpo della mail 0.43312477357203827<br>"
+      },
+      "push": {
+        "title": "Titolo push0.43312477357203827",
+        "body": "corpo push0.43312477357203827"
+      },
+      "mex": {
+        "title": "test case message0.43312477357203827",
+        "body": "test case message0.43312477357203827"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "27fa55b9-04f3-465f-9383-b5f585a22720",
+    "payload": {
+      "id": "67858fad-1777-4387-9ad3-e8d331e76ed8",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.5148939633611702",
+        "body": "corpo della mail 0.5148939633611702<br>corpo della mail 0.5148939633611702<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5148939633611702",
+        "body": "corpo push0.5148939633611702"
+      },
+      "mex": {
+        "title": "test case message0.5148939633611702",
+        "body": "test case message0.5148939633611702"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c590c3d4-453b-4701-8ff8-aeb91058020d",
+    "payload": {
+      "id": "ce97ec35-e59d-4d76-8d57-5fdcaf4e70dc",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.5744538177133434",
+        "body": "corpo della mail 0.5744538177133434<br>corpo della mail 0.5744538177133434<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5744538177133434",
+        "body": "corpo push0.5744538177133434"
+      },
+      "mex": {
+        "title": "test case message0.5744538177133434",
+        "body": "test case message0.5744538177133434"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "b5c36106-1524-4a84-a1c3-eb3025fc7c8f",
+    "payload": {
+      "id": "3efad24c-b4ad-413e-a890-f5aecd240a61",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.8873959303694352",
+        "body": "corpo della mail 0.8873959303694352<br>corpo della mail 0.8873959303694352<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8873959303694352",
+        "body": "corpo push0.8873959303694352"
+      },
+      "mex": {
+        "title": "test case message0.8873959303694352",
+        "body": "test case message0.8873959303694352"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "6844c30d-9649-4c2b-9149-ff9d2e00d2bb",
+    "payload": {
+      "id": "db81baaf-f28d-4d9b-851c-b1608eddee93",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.1994162648532123",
+        "body": "corpo della mail 0.1994162648532123<br>corpo della mail 0.1994162648532123<br>"
+      },
+      "push": {
+        "title": "Titolo push0.1994162648532123",
+        "body": "corpo push0.1994162648532123"
+      },
+      "mex": {
+        "title": "test case message0.1994162648532123",
+        "body": "test case message0.1994162648532123"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "e30bd83a-8d18-4d2d-8c08-171f0d705086",
+    "payload": {
+      "id": "688014ec-df5d-49f6-bd3b-a8d175eaba84",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.4743475163580062",
+        "body": "corpo della mail 0.4743475163580062<br>corpo della mail 0.4743475163580062<br>"
+      },
+      "push": {
+        "title": "Titolo push0.4743475163580062",
+        "body": "corpo push0.4743475163580062"
+      },
+      "mex": {
+        "title": "test case message0.4743475163580062",
+        "body": "test case message0.4743475163580062"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "d3a045f5-9ddb-4494-9b5f-9883d8104957",
+    "payload": {
+      "id": "7b26f19f-2712-4be1-9138-7a52c02069bc",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.4141677816551943",
+        "body": "corpo della mail 0.4141677816551943<br>corpo della mail 0.4141677816551943<br>"
+      },
+      "push": {
+        "title": "Titolo push0.4141677816551943",
+        "body": "corpo push0.4141677816551943"
+      },
+      "mex": {
+        "title": "test case message0.4141677816551943",
+        "body": "test case message0.4141677816551943"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c050b469-21d8-4879-8187-881f5b372405",
+    "payload": {
+      "id": "f04145d1-665e-4257-9b5a-a5fd53e0f23e",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.40824580948520284",
+        "body": "corpo della mail 0.40824580948520284<br>corpo della mail 0.40824580948520284<br>"
+      },
+      "push": {
+        "title": "Titolo push0.40824580948520284",
+        "body": "corpo push0.40824580948520284"
+      },
+      "mex": {
+        "title": "test case message0.40824580948520284",
+        "body": "test case message0.40824580948520284"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "21eca1bc-4a07-48db-a3e6-a3a980b9f92e",
+    "payload": {
+      "id": "291ed3cd-1080-45a9-a349-7fa395287f04",
+      "user_id": "AAA",
+      "email": {
+        "subject": "subject email 0.6840929700926561",
+        "body": "corpo della mail 0.6840929700926561<br>corpo della mail 0.6840929700926561<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6840929700926561",
+        "body": "corpo push0.6840929700926561"
+      },
+      "mex": {
+        "title": "test case message0.6840929700926561",
+        "body": "test case message0.6840929700926561"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "87eebffc-e003-4884-854f-09780f1632ce",
+    "payload": {
+      "id": "4869e227-878b-424f-b9a3-d95b22586cb0",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.05865677010132253",
+        "body": "corpo della mail 0.05865677010132253<br>corpo della mail 0.05865677010132253<br>"
+      },
+      "push": {
+        "title": "Titolo push0.05865677010132253",
+        "body": "corpo push0.05865677010132253"
+      },
+      "mex": {
+        "title": "test case message0.05865677010132253",
+        "body": "test case message0.05865677010132253"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "0e27bd2a-6104-4623-9930-8f50c73387a7",
+    "payload": {
+      "id": "91c63e68-09be-4533-aa8d-8b19c43193c6",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.35290160217925637",
+        "body": "corpo della mail 0.35290160217925637<br>corpo della mail 0.35290160217925637<br>"
+      },
+      "push": {
+        "title": "Titolo push0.35290160217925637",
+        "body": "corpo push0.35290160217925637"
+      },
+      "mex": {
+        "title": "test case message0.35290160217925637",
+        "body": "test case message0.35290160217925637"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "7a3aaf00-d62a-4187-9117-042dff048541",
+    "payload": {
+      "id": "b48ff29b-468a-4137-8587-e115c59d612b",
+      "user_id": "AAA",
+      "email": {
+        "subject": "subject email 0.471142620780838",
+        "body": "corpo della mail 0.471142620780838<br>corpo della mail 0.471142620780838<br>"
+      },
+      "push": {
+        "title": "Titolo push0.471142620780838",
+        "body": "corpo push0.471142620780838"
+      },
+      "mex": {
+        "title": "test case message0.471142620780838",
+        "body": "test case message0.471142620780838"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "286ab687-7e36-44a6-95ae-39bcf463a522",
+    "payload": {
+      "id": "5164ead8-1420-4d46-8645-0f884b34d4dc",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.8532540234195336",
+        "body": "corpo della mail 0.8532540234195336<br>corpo della mail 0.8532540234195336<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8532540234195336",
+        "body": "corpo push0.8532540234195336"
+      },
+      "mex": {
+        "title": "test case message0.8532540234195336",
+        "body": "test case message0.8532540234195336"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "138c1f0d-2fba-4734-9100-248bf4a5ba48",
+    "payload": {
+      "id": "5a16607d-6b69-43a5-aea8-f013b9f149d5",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.16932391479925735",
+        "body": "corpo della mail 0.16932391479925735<br>corpo della mail 0.16932391479925735<br>"
+      },
+      "push": {
+        "title": "Titolo push0.16932391479925735",
+        "body": "corpo push0.16932391479925735"
+      },
+      "mex": {
+        "title": "test case message0.16932391479925735",
+        "body": "test case message0.16932391479925735"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "3c0752ce-7f1d-4285-a166-27dd5793cdd2",
+    "payload": {
+      "id": "f1bed99b-5514-46e8-95cf-5ebe5cebda51",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.36864636228189385",
+        "body": "corpo della mail 0.36864636228189385<br>corpo della mail 0.36864636228189385<br>"
+      },
+      "push": {
+        "title": "Titolo push0.36864636228189385",
+        "body": "corpo push0.36864636228189385"
+      },
+      "mex": {
+        "title": "test case message0.36864636228189385",
+        "body": "test case message0.36864636228189385"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "78466d49-f020-4ccb-ac0c-841585fd7ff4",
+    "payload": {
+      "id": "1c292662-83f6-406e-86ea-f7057b4be5aa",
+      "user_id": "AAA",
+      "email": {
+        "subject": "subject email 0.372688568671683",
+        "body": "corpo della mail 0.372688568671683<br>corpo della mail 0.372688568671683<br>"
+      },
+      "push": {
+        "title": "Titolo push0.372688568671683",
+        "body": "corpo push0.372688568671683"
+      },
+      "mex": {
+        "title": "test case message0.372688568671683",
+        "body": "test case message0.372688568671683"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "35e396e7-c76a-4594-a038-8a111236edf0",
+    "payload": {
+      "id": "87608d4d-8612-448f-929b-77fdd4e02e44",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.49535776196066617",
+        "body": "corpo della mail 0.49535776196066617<br>corpo della mail 0.49535776196066617<br>"
+      },
+      "push": {
+        "title": "Titolo push0.49535776196066617",
+        "body": "corpo push0.49535776196066617"
+      },
+      "mex": {
+        "title": "test case message0.49535776196066617",
+        "body": "test case message0.49535776196066617"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c663ef29-a8b5-40d6-bb66-2effe4d50f55",
+    "payload": {
+      "id": "d978e6f4-6493-4e27-994d-1d991b872670",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.06450779375513926",
+        "body": "corpo della mail 0.06450779375513926<br>corpo della mail 0.06450779375513926<br>"
+      },
+      "push": {
+        "title": "Titolo push0.06450779375513926",
+        "body": "corpo push0.06450779375513926"
+      },
+      "mex": {
+        "title": "test case message0.06450779375513926",
+        "body": "test case message0.06450779375513926"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "3516a0ed-08d4-45af-b77e-63174fe99699",
+    "payload": {
+      "id": "9188667f-06d9-49e2-9f51-7e899ef0a2ba",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.8582134504299646",
+        "body": "corpo della mail 0.8582134504299646<br>corpo della mail 0.8582134504299646<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8582134504299646",
+        "body": "corpo push0.8582134504299646"
+      },
+      "mex": {
+        "title": "test case message0.8582134504299646",
+        "body": "test case message0.8582134504299646"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "ff7cb28b-0530-48d2-8274-03c7dec08dd8",
+    "payload": {
+      "id": "e343235d-3ead-4248-9174-05388e31a109",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.8552281082745827",
+        "body": "corpo della mail 0.8552281082745827<br>corpo della mail 0.8552281082745827<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8552281082745827",
+        "body": "corpo push0.8552281082745827"
+      },
+      "mex": {
+        "title": "test case message0.8552281082745827",
+        "body": "test case message0.8552281082745827"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "510132c1-e39d-4e58-ab5a-7b25f9c82479",
+    "payload": {
+      "id": "ff76061f-af7b-41ce-b3a7-ff2075f0a55a",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.5589967591653402",
+        "body": "corpo della mail 0.5589967591653402<br>corpo della mail 0.5589967591653402<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5589967591653402",
+        "body": "corpo push0.5589967591653402"
+      },
+      "mex": {
+        "title": "test case message0.5589967591653402",
+        "body": "test case message0.5589967591653402"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "8d7b0ccb-8539-41f4-9927-0ce0d947eec2",
+    "payload": {
+      "id": "fc1a7395-64b0-4b9b-994b-f20b357888f6",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.1364504438787686",
+        "body": "corpo della mail 0.1364504438787686<br>corpo della mail 0.1364504438787686<br>"
+      },
+      "push": {
+        "title": "Titolo push0.1364504438787686",
+        "body": "corpo push0.1364504438787686"
+      },
+      "mex": {
+        "title": "test case message0.1364504438787686",
+        "body": "test case message0.1364504438787686"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "fb770f7b-dd98-40c8-9aeb-ffb6e10fc50b",
+    "payload": {
+      "id": "36671688-0c1c-4d0e-a3b6-cb2b6d095009",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.43520271060633564",
+        "body": "corpo della mail 0.43520271060633564<br>corpo della mail 0.43520271060633564<br>"
+      },
+      "push": {
+        "title": "Titolo push0.43520271060633564",
+        "body": "corpo push0.43520271060633564"
+      },
+      "mex": {
+        "title": "test case message0.43520271060633564",
+        "body": "test case message0.43520271060633564"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "520ac3a3-900d-4fef-9b9a-3767b4527e19",
+    "payload": {
+      "id": "2e33cb83-ce43-4865-adb5-43d58d6a6f16",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.28337789179516415",
+        "body": "corpo della mail 0.28337789179516415<br>corpo della mail 0.28337789179516415<br>"
+      },
+      "push": {
+        "title": "Titolo push0.28337789179516415",
+        "body": "corpo push0.28337789179516415"
+      },
+      "mex": {
+        "title": "test case message0.28337789179516415",
+        "body": "test case message0.28337789179516415"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "4e02871d-51a3-4885-a40a-181cae007d76",
+    "payload": {
+      "id": "606cc5eb-9cc4-4aaa-bec1-a45c20555680",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.4321122923171754",
+        "body": "corpo della mail 0.4321122923171754<br>corpo della mail 0.4321122923171754<br>"
+      },
+      "push": {
+        "title": "Titolo push0.4321122923171754",
+        "body": "corpo push0.4321122923171754"
+      },
+      "mex": {
+        "title": "test case message0.4321122923171754",
+        "body": "test case message0.4321122923171754"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "7282b619-920b-4904-951f-b36792e2bc38",
+    "payload": {
+      "id": "1735e1e2-0eff-4a09-b630-06e570df1afa",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.4859070381344084",
+        "body": "corpo della mail 0.4859070381344084<br>corpo della mail 0.4859070381344084<br>"
+      },
+      "push": {
+        "title": "Titolo push0.4859070381344084",
+        "body": "corpo push0.4859070381344084"
+      },
+      "mex": {
+        "title": "test case message0.4859070381344084",
+        "body": "test case message0.4859070381344084"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "a34e1680-c20b-42b3-b6b7-f45c67fb9fcc",
+    "payload": {
+      "id": "b3487856-ea2e-4068-bfee-2357d36a9d9c",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.40338261546951637",
+        "body": "corpo della mail 0.40338261546951637<br>corpo della mail 0.40338261546951637<br>"
+      },
+      "push": {
+        "title": "Titolo push0.40338261546951637",
+        "body": "corpo push0.40338261546951637"
+      },
+      "mex": {
+        "title": "test case message0.40338261546951637",
+        "body": "test case message0.40338261546951637"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "9f47a127-0e49-4c58-9bbf-94c696376b45",
+    "payload": {
+      "id": "0ac17bdd-9847-4000-b744-a8ab1cbc1d4b",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.6287784921844748",
+        "body": "corpo della mail 0.6287784921844748<br>corpo della mail 0.6287784921844748<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6287784921844748",
+        "body": "corpo push0.6287784921844748"
+      },
+      "mex": {
+        "title": "test case message0.6287784921844748",
+        "body": "test case message0.6287784921844748"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "2d39b2dd-be81-4fe3-b1cc-1c86d933a9ab",
+    "payload": {
+      "id": "81835fcb-993d-445e-a2f7-2bfc69a8ad2b",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.6636159333570801",
+        "body": "corpo della mail 0.6636159333570801<br>corpo della mail 0.6636159333570801<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6636159333570801",
+        "body": "corpo push0.6636159333570801"
+      },
+      "mex": {
+        "title": "test case message0.6636159333570801",
+        "body": "test case message0.6636159333570801"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "0e951851-7aa4-4d88-9db7-83896dd6c7ef",
+    "payload": {
+      "id": "87d28db1-50aa-4f09-8f58-85ba734845b3",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.7504476535822271",
+        "body": "corpo della mail 0.7504476535822271<br>corpo della mail 0.7504476535822271<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7504476535822271",
+        "body": "corpo push0.7504476535822271"
+      },
+      "mex": {
+        "title": "test case message0.7504476535822271",
+        "body": "test case message0.7504476535822271"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "372c2361-1804-4a30-bbc4-6018b333e123",
+    "payload": {
+      "id": "b84a2d04-c674-4452-bd7a-3b7d72c11c31",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.7538264203475376",
+        "body": "corpo della mail 0.7538264203475376<br>corpo della mail 0.7538264203475376<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7538264203475376",
+        "body": "corpo push0.7538264203475376"
+      },
+      "mex": {
+        "title": "test case message0.7538264203475376",
+        "body": "test case message0.7538264203475376"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "3f79f9d9-5e71-4308-bada-b9584fec7c59",
+    "payload": {
+      "id": "df57ffd5-ec90-45dd-8075-5c224796691d",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.687282736487222",
+        "body": "corpo della mail 0.687282736487222<br>corpo della mail 0.687282736487222<br>"
+      },
+      "push": {
+        "title": "Titolo push0.687282736487222",
+        "body": "corpo push0.687282736487222"
+      },
+      "mex": {
+        "title": "test case message0.687282736487222",
+        "body": "test case message0.687282736487222"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "490ae745-0ccf-4afe-a683-57427fbc72d0",
+    "payload": {
+      "id": "87377760-abc9-4c0a-a0a6-6522a649b35c",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.5590506900638668",
+        "body": "corpo della mail 0.5590506900638668<br>corpo della mail 0.5590506900638668<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5590506900638668",
+        "body": "corpo push0.5590506900638668"
+      },
+      "mex": {
+        "title": "test case message0.5590506900638668",
+        "body": "test case message0.5590506900638668"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c5314ee2-5505-4147-a68f-c63b26e1fa59",
+    "payload": {
+      "id": "98a7f182-f5d5-4441-a795-58b97476d457",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.3057456528027538",
+        "body": "corpo della mail 0.3057456528027538<br>corpo della mail 0.3057456528027538<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3057456528027538",
+        "body": "corpo push0.3057456528027538"
+      },
+      "mex": {
+        "title": "test case message0.3057456528027538",
+        "body": "test case message0.3057456528027538"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "2f5ecd7d-4910-4724-bf72-00299c7eb57f",
+    "payload": {
+      "id": "2bf80b4b-6793-48b7-a50d-4b920146a058",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.3983723752949131",
+        "body": "corpo della mail 0.3983723752949131<br>corpo della mail 0.3983723752949131<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3983723752949131",
+        "body": "corpo push0.3983723752949131"
+      },
+      "mex": {
+        "title": "test case message0.3983723752949131",
+        "body": "test case message0.3983723752949131"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "33b1c214-b67d-46b8-b597-4cf3e3391e99",
+    "payload": {
+      "id": "4dd69cbc-9b1e-4806-a393-15f911b8e54c",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.004363389496325976",
+        "body": "corpo della mail 0.004363389496325976<br>corpo della mail 0.004363389496325976<br>"
+      },
+      "push": {
+        "title": "Titolo push0.004363389496325976",
+        "body": "corpo push0.004363389496325976"
+      },
+      "mex": {
+        "title": "test case message0.004363389496325976",
+        "body": "test case message0.004363389496325976"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "83bf2877-906e-45b2-a13c-6a47ad275361",
+    "payload": {
+      "id": "ee1b71c3-d9f6-48d6-a355-3bdeec2dc7bf",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.39087442777232084",
+        "body": "corpo della mail 0.39087442777232084<br>corpo della mail 0.39087442777232084<br>"
+      },
+      "push": {
+        "title": "Titolo push0.39087442777232084",
+        "body": "corpo push0.39087442777232084"
+      },
+      "mex": {
+        "title": "test case message0.39087442777232084",
+        "body": "test case message0.39087442777232084"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "edfb7cf0-a276-4fad-a3c4-0055e0606506",
+    "payload": {
+      "id": "fbe143e4-1560-4f9f-8fa8-974d5ca728a9",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.5327602748831217",
+        "body": "corpo della mail 0.5327602748831217<br>corpo della mail 0.5327602748831217<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5327602748831217",
+        "body": "corpo push0.5327602748831217"
+      },
+      "mex": {
+        "title": "test case message0.5327602748831217",
+        "body": "test case message0.5327602748831217"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "6c022e29-22c8-4e5f-8f0a-5d8d3fe559ae",
+    "payload": {
+      "id": "263feaf7-f8ac-47cd-be2c-5a5900b5f8d0",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.2620682489813999",
+        "body": "corpo della mail 0.2620682489813999<br>corpo della mail 0.2620682489813999<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2620682489813999",
+        "body": "corpo push0.2620682489813999"
+      },
+      "mex": {
+        "title": "test case message0.2620682489813999",
+        "body": "test case message0.2620682489813999"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "2006022f-013a-4b14-9b27-25ef323f6159",
+    "payload": {
+      "id": "64c49b99-d4cf-4ca2-8d0f-57f20a15ad0b",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.9902232553457073",
+        "body": "corpo della mail 0.9902232553457073<br>corpo della mail 0.9902232553457073<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9902232553457073",
+        "body": "corpo push0.9902232553457073"
+      },
+      "mex": {
+        "title": "test case message0.9902232553457073",
+        "body": "test case message0.9902232553457073"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "54caf531-be4a-4018-916e-f9584515f2d2",
+    "payload": {
+      "id": "6f406675-4b65-4286-84c1-d8c86e1ec383",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.9797938908045325",
+        "body": "corpo della mail 0.9797938908045325<br>corpo della mail 0.9797938908045325<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9797938908045325",
+        "body": "corpo push0.9797938908045325"
+      },
+      "mex": {
+        "title": "test case message0.9797938908045325",
+        "body": "test case message0.9797938908045325"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "acc282bc-3d79-43fb-aca5-5ed4f1106b38",
+    "payload": {
+      "id": "fdb16f71-b3f6-47ce-bd9b-8ec36a36d149",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.9763557216537853",
+        "body": "corpo della mail 0.9763557216537853<br>corpo della mail 0.9763557216537853<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9763557216537853",
+        "body": "corpo push0.9763557216537853"
+      },
+      "mex": {
+        "title": "test case message0.9763557216537853",
+        "body": "test case message0.9763557216537853"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "e75734c8-fb5e-4d68-b649-69fb331b62e4",
+    "payload": {
+      "id": "b94fcd55-13ef-4ae3-b040-465810edfd24",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.411676952139558",
+        "body": "corpo della mail 0.411676952139558<br>corpo della mail 0.411676952139558<br>"
+      },
+      "push": {
+        "title": "Titolo push0.411676952139558",
+        "body": "corpo push0.411676952139558"
+      },
+      "mex": {
+        "title": "test case message0.411676952139558",
+        "body": "test case message0.411676952139558"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "f7a79657-4205-477c-af3a-1813f060a0c8",
+    "payload": {
+      "id": "27aab2a1-01f1-404c-91a0-003bacbfc7c6",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.8685854135692324",
+        "body": "corpo della mail 0.8685854135692324<br>corpo della mail 0.8685854135692324<br>"
+      },
+      "push": {
+        "title": "Titolo push0.8685854135692324",
+        "body": "corpo push0.8685854135692324"
+      },
+      "mex": {
+        "title": "test case message0.8685854135692324",
+        "body": "test case message0.8685854135692324"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "b4d4afb5-93ea-4b41-b58c-cc6ea8f9933f",
+    "payload": {
+      "id": "5ffd0735-1270-4808-9777-53da0100b4fa",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.5508473816865518",
+        "body": "corpo della mail 0.5508473816865518<br>corpo della mail 0.5508473816865518<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5508473816865518",
+        "body": "corpo push0.5508473816865518"
+      },
+      "mex": {
+        "title": "test case message0.5508473816865518",
+        "body": "test case message0.5508473816865518"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "4a6882b3-c489-40fe-8402-4dd6f85c9bc3",
+    "payload": {
+      "id": "b094b6f8-7ebb-4011-93ac-41ad422a8ce9",
+      "user_id": "AAA",
+      "email": {
+        "subject": "subject email 0.22907347763334052",
+        "body": "corpo della mail 0.22907347763334052<br>corpo della mail 0.22907347763334052<br>"
+      },
+      "push": {
+        "title": "Titolo push0.22907347763334052",
+        "body": "corpo push0.22907347763334052"
+      },
+      "mex": {
+        "title": "test case message0.22907347763334052",
+        "body": "test case message0.22907347763334052"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "fb5e3e62-61fd-42bd-bb19-77c095b529b8",
+    "payload": {
+      "id": "aee89ceb-a522-4c3c-bd92-b6168ee28146",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.3091517964587629",
+        "body": "corpo della mail 0.3091517964587629<br>corpo della mail 0.3091517964587629<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3091517964587629",
+        "body": "corpo push0.3091517964587629"
+      },
+      "mex": {
+        "title": "test case message0.3091517964587629",
+        "body": "test case message0.3091517964587629"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "da38b69f-10c9-4568-ab65-99328731b4c7",
+    "payload": {
+      "id": "14f47a3e-84c8-46e2-b253-0bc3cfd7ac13",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.2982782788476399",
+        "body": "corpo della mail 0.2982782788476399<br>corpo della mail 0.2982782788476399<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2982782788476399",
+        "body": "corpo push0.2982782788476399"
+      },
+      "mex": {
+        "title": "test case message0.2982782788476399",
+        "body": "test case message0.2982782788476399"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "3394bc8a-163c-4911-95a9-d1839115085e",
+    "payload": {
+      "id": "1a96eca5-a226-435c-9a3d-6bab9ab4f5ae",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.5114482207058502",
+        "body": "corpo della mail 0.5114482207058502<br>corpo della mail 0.5114482207058502<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5114482207058502",
+        "body": "corpo push0.5114482207058502"
+      },
+      "mex": {
+        "title": "test case message0.5114482207058502",
+        "body": "test case message0.5114482207058502"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "857c617b-8b21-4682-9ea8-80a51ed5d622",
+    "payload": {
+      "id": "e608f968-9194-4cfb-868f-6260f354166c",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.009695108119941676",
+        "body": "corpo della mail 0.009695108119941676<br>corpo della mail 0.009695108119941676<br>"
+      },
+      "push": {
+        "title": "Titolo push0.009695108119941676",
+        "body": "corpo push0.009695108119941676"
+      },
+      "mex": {
+        "title": "test case message0.009695108119941676",
+        "body": "test case message0.009695108119941676"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "8700b3e8-1f21-4b04-943e-912c3fe6c108",
+    "payload": {
+      "id": "ec9703bb-8b0b-4261-89a3-0ab8db628410",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.2983327141450012",
+        "body": "corpo della mail 0.2983327141450012<br>corpo della mail 0.2983327141450012<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2983327141450012",
+        "body": "corpo push0.2983327141450012"
+      },
+      "mex": {
+        "title": "test case message0.2983327141450012",
+        "body": "test case message0.2983327141450012"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "4c6d068f-c4af-4b2f-90fd-671dd885bc5a",
+    "payload": {
+      "id": "2404b170-50cd-4b77-8b47-1717124e3710",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.22973775157961973",
+        "body": "corpo della mail 0.22973775157961973<br>corpo della mail 0.22973775157961973<br>"
+      },
+      "push": {
+        "title": "Titolo push0.22973775157961973",
+        "body": "corpo push0.22973775157961973"
+      },
+      "mex": {
+        "title": "test case message0.22973775157961973",
+        "body": "test case message0.22973775157961973"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "fec14a67-2254-48eb-9bdf-03ffa8a31ade",
+    "payload": {
+      "id": "54071764-3188-4708-b0ac-2ad35c5dbb68",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.3001066380076487",
+        "body": "corpo della mail 0.3001066380076487<br>corpo della mail 0.3001066380076487<br>"
+      },
+      "push": {
+        "title": "Titolo push0.3001066380076487",
+        "body": "corpo push0.3001066380076487"
+      },
+      "mex": {
+        "title": "test case message0.3001066380076487",
+        "body": "test case message0.3001066380076487"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "de51bc15-7a8c-4a63-a697-b70522b139f5",
+    "payload": {
+      "id": "3f454a42-945e-4da0-91b6-f5d2080447e2",
+      "user_id": "EEE",
+      "email": {
+        "subject": "subject email 0.9111173261433838",
+        "body": "corpo della mail 0.9111173261433838<br>corpo della mail 0.9111173261433838<br>"
+      },
+      "push": {
+        "title": "Titolo push0.9111173261433838",
+        "body": "corpo push0.9111173261433838"
+      },
+      "mex": {
+        "title": "test case message0.9111173261433838",
+        "body": "test case message0.9111173261433838"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "736c62fc-823c-47f0-bdef-89fa848a924c",
+    "payload": {
+      "id": "54e3513a-f0d7-4274-9df8-6495fe34721e",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.07478654698835374",
+        "body": "corpo della mail 0.07478654698835374<br>corpo della mail 0.07478654698835374<br>"
+      },
+      "push": {
+        "title": "Titolo push0.07478654698835374",
+        "body": "corpo push0.07478654698835374"
+      },
+      "mex": {
+        "title": "test case message0.07478654698835374",
+        "body": "test case message0.07478654698835374"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "20fa8e4f-53cd-4be9-a40f-d761bbacdaf5",
+    "payload": {
+      "id": "d91edf4c-08aa-42ef-ad0c-e4a01097ea6c",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.46240694480594113",
+        "body": "corpo della mail 0.46240694480594113<br>corpo della mail 0.46240694480594113<br>"
+      },
+      "push": {
+        "title": "Titolo push0.46240694480594113",
+        "body": "corpo push0.46240694480594113"
+      },
+      "mex": {
+        "title": "test case message0.46240694480594113",
+        "body": "test case message0.46240694480594113"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "739cbc05-e8e3-43f5-988e-4514b7ea1bcd",
+    "payload": {
+      "id": "0393e461-9e58-4651-9b52-6c43d91c29eb",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.41545643099762297",
+        "body": "corpo della mail 0.41545643099762297<br>corpo della mail 0.41545643099762297<br>"
+      },
+      "push": {
+        "title": "Titolo push0.41545643099762297",
+        "body": "corpo push0.41545643099762297"
+      },
+      "mex": {
+        "title": "test case message0.41545643099762297",
+        "body": "test case message0.41545643099762297"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "d0871417-42ca-4f34-bbc7-c20b6fbe96a6",
+    "payload": {
+      "id": "d8e68db3-1f84-4c83-a9a7-9f31d2d92d12",
+      "user_id": "HHH",
+      "email": {
+        "subject": "subject email 0.6904391323566925",
+        "body": "corpo della mail 0.6904391323566925<br>corpo della mail 0.6904391323566925<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6904391323566925",
+        "body": "corpo push0.6904391323566925"
+      },
+      "mex": {
+        "title": "test case message0.6904391323566925",
+        "body": "test case message0.6904391323566925"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "a59556d5-5529-4c79-bdfa-62594a996b70",
+    "payload": {
+      "id": "c463381a-2121-4b3a-96b5-baff9a77cbf7",
+      "user_id": "JJJ",
+      "email": {
+        "subject": "subject email 0.260829780250488",
+        "body": "corpo della mail 0.260829780250488<br>corpo della mail 0.260829780250488<br>"
+      },
+      "push": {
+        "title": "Titolo push0.260829780250488",
+        "body": "corpo push0.260829780250488"
+      },
+      "mex": {
+        "title": "test case message0.260829780250488",
+        "body": "test case message0.260829780250488"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "8300a433-de25-4199-9cb8-1e8ea6231613",
+    "payload": {
+      "id": "898f01b3-fd57-4181-8929-b0d1d06a48d6",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.33552887289030475",
+        "body": "corpo della mail 0.33552887289030475<br>corpo della mail 0.33552887289030475<br>"
+      },
+      "push": {
+        "title": "Titolo push0.33552887289030475",
+        "body": "corpo push0.33552887289030475"
+      },
+      "mex": {
+        "title": "test case message0.33552887289030475",
+        "body": "test case message0.33552887289030475"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "be66f6de-09fb-47ca-a550-6705fe1786d8",
+    "payload": {
+      "id": "38ea24d3-20bb-4644-a6e0-3efc68507eaa",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.1965838697644655",
+        "body": "corpo della mail 0.1965838697644655<br>corpo della mail 0.1965838697644655<br>"
+      },
+      "push": {
+        "title": "Titolo push0.1965838697644655",
+        "body": "corpo push0.1965838697644655"
+      },
+      "mex": {
+        "title": "test case message0.1965838697644655",
+        "body": "test case message0.1965838697644655"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "be701a2b-623b-4310-aac6-65e996600ff5",
+    "payload": {
+      "id": "5d3914c8-bfdc-471f-9629-753a6ea01e77",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.6177043256227923",
+        "body": "corpo della mail 0.6177043256227923<br>corpo della mail 0.6177043256227923<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6177043256227923",
+        "body": "corpo push0.6177043256227923"
+      },
+      "mex": {
+        "title": "test case message0.6177043256227923",
+        "body": "test case message0.6177043256227923"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "c865b5b4-aafe-49dd-bcb9-efadd4690d3e",
+    "payload": {
+      "id": "11a5a228-9d11-4666-bfa4-73b07888c453",
+      "user_id": "GGG",
+      "email": {
+        "subject": "subject email 0.6664201493939295",
+        "body": "corpo della mail 0.6664201493939295<br>corpo della mail 0.6664201493939295<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6664201493939295",
+        "body": "corpo push0.6664201493939295"
+      },
+      "mex": {
+        "title": "test case message0.6664201493939295",
+        "body": "test case message0.6664201493939295"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "6caec17b-ecf0-4fed-8a8b-c2c11f9f718c",
+    "payload": {
+      "id": "84e0460b-10a1-419c-b8f0-d9b00730b762",
+      "user_id": "CCC",
+      "email": {
+        "subject": "subject email 0.7052804782052327",
+        "body": "corpo della mail 0.7052804782052327<br>corpo della mail 0.7052804782052327<br>"
+      },
+      "push": {
+        "title": "Titolo push0.7052804782052327",
+        "body": "corpo push0.7052804782052327"
+      },
+      "mex": {
+        "title": "test case message0.7052804782052327",
+        "body": "test case message0.7052804782052327"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "641ee80f-11e2-4eb2-bc18-3724eac9812a",
+    "payload": {
+      "id": "b7d02da7-ae31-4395-9ceb-03f21dcb70e1",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.010984761416808153",
+        "body": "corpo della mail 0.010984761416808153<br>corpo della mail 0.010984761416808153<br>"
+      },
+      "push": {
+        "title": "Titolo push0.010984761416808153",
+        "body": "corpo push0.010984761416808153"
+      },
+      "mex": {
+        "title": "test case message0.010984761416808153",
+        "body": "test case message0.010984761416808153"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "94a6a546-68df-4bad-ad25-5b2557aecb92",
+    "payload": {
+      "id": "d8f2132d-0dbf-42a7-b6ef-21337f28874e",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.6568733277583818",
+        "body": "corpo della mail 0.6568733277583818<br>corpo della mail 0.6568733277583818<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6568733277583818",
+        "body": "corpo push0.6568733277583818"
+      },
+      "mex": {
+        "title": "test case message0.6568733277583818",
+        "body": "test case message0.6568733277583818"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "dde27b1f-5ca3-4c82-937c-229ba93f7a06",
+    "payload": {
+      "id": "8675c938-00b5-46c3-a8d7-d20575aff23d",
+      "user_id": "DDD",
+      "email": {
+        "subject": "subject email 0.5643312241574205",
+        "body": "corpo della mail 0.5643312241574205<br>corpo della mail 0.5643312241574205<br>"
+      },
+      "push": {
+        "title": "Titolo push0.5643312241574205",
+        "body": "corpo push0.5643312241574205"
+      },
+      "mex": {
+        "title": "test case message0.5643312241574205",
+        "body": "test case message0.5643312241574205"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "3d0d82aa-6082-435f-a164-4b7983957908",
+    "payload": {
+      "id": "b950f17b-2c25-42b1-a857-45d425c3f1bd",
+      "user_id": "BBB",
+      "email": {
+        "subject": "subject email 0.13392207285795155",
+        "body": "corpo della mail 0.13392207285795155<br>corpo della mail 0.13392207285795155<br>"
+      },
+      "push": {
+        "title": "Titolo push0.13392207285795155",
+        "body": "corpo push0.13392207285795155"
+      },
+      "mex": {
+        "title": "test case message0.13392207285795155",
+        "body": "test case message0.13392207285795155"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "1793d963-b5e1-4cf3-addf-b72da5328b7c",
+    "payload": {
+      "id": "6ccc0c4d-cd36-47f6-bd22-27ec01d4e2fa",
+      "user_id": "FFF",
+      "email": {
+        "subject": "subject email 0.6593368229727454",
+        "body": "corpo della mail 0.6593368229727454<br>corpo della mail 0.6593368229727454<br>"
+      },
+      "push": {
+        "title": "Titolo push0.6593368229727454",
+        "body": "corpo push0.6593368229727454"
+      },
+      "mex": {
+        "title": "test case message0.6593368229727454",
+        "body": "test case message0.6593368229727454"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "e7c91693-5f85-4aaa-80a2-1cd05d8e22ae",
+    "payload": {
+      "id": "0e6709d9-4b5b-4f87-aee1-c21a80e15b84",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.438891579720847",
+        "body": "corpo della mail 0.438891579720847<br>corpo della mail 0.438891579720847<br>"
+      },
+      "push": {
+        "title": "Titolo push0.438891579720847",
+        "body": "corpo push0.438891579720847"
+      },
+      "mex": {
+        "title": "test case message0.438891579720847",
+        "body": "test case message0.438891579720847"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  },
+  {
+    "uuid": "07d5dfe8-fe98-49de-8203-2a28d9a64883",
+    "payload": {
+      "id": "72f68e27-cf72-4a6c-948e-c2ca2626b8d4",
+      "user_id": "III",
+      "email": {
+        "subject": "subject email 0.2921853467522517",
+        "body": "corpo della mail 0.2921853467522517<br>corpo della mail 0.2921853467522517<br>"
+      },
+      "push": {
+        "title": "Titolo push0.2921853467522517",
+        "body": "corpo push0.2921853467522517"
+      },
+      "mex": {
+        "title": "test case message0.2921853467522517",
+        "body": "test case message0.2921853467522517"
+      },
+      "dry_run": true
+    },
+    "priority": false
+  }
+]

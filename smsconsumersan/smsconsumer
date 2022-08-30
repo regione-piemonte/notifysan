@@ -1,0 +1,2 @@
+cd /appserv/unp/notify/smsconsumer/src
+node smsconsumer.js >/dev/null 2>&1 &

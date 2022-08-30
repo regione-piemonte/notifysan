@@ -1,0 +1,16 @@
+{
+  "security": {
+    "secret": "dev"
+  },
+  "redis": {
+    "keyPrefix": "mb:",
+    "do_setup":true
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "../../logs/mb.log"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "jobs",
+  "version": "1.0.0",
+  "description": "consumer of the queue that contains messages to be sent as push notification",
+  "main": "push-consumer.js",
+  "scripts": {
+    "start": "cd src && node pushconsumer.js",
+    "test": "cd test && node test.js",
+    "testSender": "cd test && node test-sender.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "googleapis": "^31.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.3.0",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9"
+  }
+}

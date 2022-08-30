@@ -1,0 +1,26 @@
+{
+  "mb": {
+    "queues": {
+      "messages": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/queues/messages:sms",
+      "events": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/topics/events"
+    }
+  },
+  "preferences": {
+    "url": "http://tst-notifysan.sanita.csi.it/notifysan-preferences/api/v1/users",
+    "urlV1": "http://tst-notifysan.sanita.csi.it/notifysan-preferences/api/v1"
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "/appserv/unp/logs/smsconsumer.log"
+      }
+    }
+  },
+  "sms": {
+    "send_url": "http://dev-espos-gateway-sms.csi.it/cgi-bin/client/pSmsRequest.cgi"
+  },
+  "appdynamics": {
+      "proxyHost": "podto1-proxy.site01.nivolapiemonte.it",
+      "proxyPort": "3128"
+  }
+}

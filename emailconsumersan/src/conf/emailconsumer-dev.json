@@ -1,0 +1,30 @@
+{
+    "mb": {
+        "queues": {
+            "messages": "http://dev-notify.csi.it/notify-mb/api/v1/queues/messages:email",
+            "events": "http://dev-notify.csi.it/notify-mb/api/v1/topics/events",
+            "keys": "http://dev-notify.csi.it/notify-mb/api/v1/keys/template:email"
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMzI2ZDQxOTgtNjY3OS00MTA5LTliNzktNDQxZmM2OTgzMDVlIiwiY2xpZW50X25hbWUiOiJlbWFpbF9jb25zdW1lciIsImNsaWVudF91dWlkIjoiNThiM2RiNDQtNmQ4ZC00NTRjLTk1YjktZDVkNzZkZjI3NDU4IiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXX0._cxxD0htNc1PCXnI1Kqwv1iXlKle9S6_x2f3RfG4sWE"
+    },
+    "preferences": {
+        "url": "http://dev-notify.csi.it/notify-preferences/api/v1/users",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMzI2ZDQxOTgtNjY3OS00MTA5LTliNzktNDQxZmM2OTgzMDVlIiwiY2xpZW50X25hbWUiOiJlbWFpbF9jb25zdW1lciIsImNsaWVudF91dWlkIjoiNThiM2RiNDQtNmQ4ZC00NTRjLTk1YjktZDVkNzZkZjI3NDU4IiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXX0._cxxD0htNc1PCXnI1Kqwv1iXlKle9S6_x2f3RfG4sWE",
+        "urlV1": "http://dev-notify-sanita.csi.it/notifysan-preferences/api/v1"
+    },
+    "log4js": {
+        "appenders": {
+            "fileAppender": {
+                "filename": "/appserv/unp/logs/emailconsumer.log"
+            }
+        }
+    },
+    "email_server": {
+        "host": "mailtest.csi.it",
+        "port": 25
+    },
+    "appdynamics": {
+        "proxyHost": "podto2-proxy.site02.nivolapiemonte.it",
+        "proxyPort": "3128"
+    }
+}

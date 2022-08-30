@@ -1,0 +1,2 @@
+cd /appserv/unp/notify/mexconsumer/src
+node mexconsumer.js >/dev/null 2>&1 &

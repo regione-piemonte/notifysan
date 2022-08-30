@@ -177,13 +177,12 @@ Il token contiene le informazioni necessarie affinchè il sistema possa inviare 
 
 | **nome**              | **descrizione**                                                                                                                                                                                                                                                                                               |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| nome servizio         | Identificativo univoco del servizio ( se disponibile utilizzare un identificativo già presente nell'ecosistema di riferimento).|
+| nome servizio/fruitore         | Identificativo univoco del servizio ( se disponibile utilizzare un identificativo già presente nell'ecosistema di riferimento).|
 | email di riferimento  | Email di contatto del capo progetto del servizio, questa informazione verrà utilizzata esclusivamente per l'invio di token di accesso o altre informazioni di servizio.|
 | tags                  | Attributi del servizio utili come filtri in fase presentazione all'utente dei servizi di notifica. Consigliato un confronto con il gruppo di Governo per l'attribuzione dei tags al servizio.|
 | canalità offerte      | Specificare le canalità offerte dal servizio di business: email, sms, push.<br>N.B.:<br>  Nel caso di **push** è necessario esplicitare la chiave token di FireBase legata all'applicazione web che riceve le notifiche. Da richiedere al progettista responsabile dello sviluppo del front-end.<br> Nel caso di **sms** è necessario indicare gli estremi del progetto SMS (a cura del referente di progetto CSI)<br>  Nel caso di **email** è necessario indicare una mail mittente valida e registrata presso il provider. esempio mail: "Sportello Facile" \<sportellofacile@torinofacile.it\> Se il gestore del servizio di posta è CSI-Piemonte è necessario che l'indirizzo sia correttamente censito. Se il gestore del servizio di posta non è il CSI-Piemonte è necessario che il gestore esterno aggiunga al loro record SPF sul DNS i server CSI di uscita "include:_spfmailfarmnet.csi.it", questa condizione è necessaria affinchè le mail siano correttamente recapitate all'utente. La dimensione del messaggio di posta influisce suoi tempi di evasione dei messaggi a causa del tempo di calcolo della firma DKIM, si prega di minimizzare la grafica e il testo dei messaggi.|
-| tipo applicazione     | Se l'applicazione è rivolta ai cittadini oppure agli operatori (informazione utile solo nel caso di accesso alle preferenze). L'applicazione deve essere opportunamente autorizzata nel caso non siano i cittadini ad accedere alle proprie preferenze.|
 
-Ad ogni servizio di business è associata una chiave JWT di accesso alle API di sottomissione notifiche e le chiavi JWT dei canalità di front-end responsabili del setting delle preferenze utente e consultazione messaggi.
+Ad ogni fruitore del servizio di business è associata una chiave JWT di accesso alle API di sottomissione notifiche e le chiavi JWT dei canalità di front-end responsabili del setting delle preferenze utente e consultazione messaggi.
 
 Per il rilascio dei token di accesso contattare il referente CSI della piattaforma di notifica.
 
@@ -203,37 +202,21 @@ Il sistema gestisce una semplice forma di priorità. Essa consiste dare la prece
 ### Invio notifiche
 
 #### Ambienti di riferimento per sottomissione notifiche
-La visibilità della piattaforma è limitata alla rete CSI, per accessi da reti esterne è necessario definire VPN e autorizzazioni accesso puntuali qualora non siano già disponibili.
+La visibilità della piattaforma non è limitata alla rete CSI.
 ##### Piattaforma di test
 Di seguito l'endpoint di test per la sottomissione notifiche, si ricorda che l'accesso alla suddetta API è vincolata alla disponibilità del token JWT di test.
 http://tst-notifysan.sanita.csi.it/notifysan-mb/
 
 ##### Piattaforma di produzione
 Di seguito l'endpoint di produzione per la sottomissione notifiche, si ricorda che l'accesso alla suddetta API è vincolata alla disponibilità del token JWT di produzione.
-http://notify.sanita.csi.it/notifysan-mb/
+http://notifysan.sanita.csi.it/notifysan-mb/
 La specifica del messaggio è definita nel seguente documento:
 https://github.com/regione-piemonte/notifysan/formato_messaggio.docx
+In base ai criteri specificati nel messaggio si cercheranno gli utenti a cui inviare il messaggio
 
-
-### Risultato invio delle notifiche
-Tramite un'apposita API è possibile avere le quadrature delle notifiche inviate.
-Per poter utilizzare l'API di status dei messaggi inviati occorre avere un token abilitato alla fruizione.
 
 #### Ambienti di riferimento per sottomissione notifiche
 La visibilità della piattaforma non è limitata alla rete CSI. E' necessario comunque avere gli utenti destinatari dei messaggi presenti nel database del configuratore.
-
-##### Piattaforma di test
-Di seguito l'endpoint di test per recupero esito invio, si ricorda che l'accesso alla suddetta API è vincolata alla disponibilità del token JWT di test.
-http://tst-notifysan.sanita.csi.it/notifysan-status/
-
-##### Piattaforma di produzione
-Di seguito l'endpoint di produzione per recupero esito invio, si ricorda che l'accesso alla suddetta API è vincolata alla disponibilità del token JWT di produzione.
-http://notifysan.sanita.csi.it/notifysan-status/
-
-
-#### Ottenere esito invio
-Si può effettuare una ricerca utilizzando l'uuid del messaggio, chiamando la risorsa ```/api/v1/status/messages/{uuid}```, oppure il bulk_id, chiamando la risorsa ```/api/v1/status/messages?bulk_id={bulk_id}```.
-
 
 ### Gestione dei messaggi presenti nel *Message Store*
 Il Message Store permette di gestire i messaggi ricevuti da un cittadino dai vari servizi.
@@ -253,50 +236,7 @@ http://notifysan.sanita.csi.it/notifysan-messagestore/
 #### Ottenere la lista dei messaggi di un utente
 Per ottenere la lista dei messaggi di un cittadino occorre invocare la risorsa ```/api/<version>/users/{user_id}/messages``` usando il verbo **GET**.
 Per ottenere una lista filtrata di messaggi si può inviare nella url il parametro *filter*. I filtri si possono effettuare sui tag, sulla data di ricezione oppure sull'avvenuta lettura (per i dettagli vedere il file openapi linkato in fondo).
-
-Ad esempio invocando **GET** ```/api/v1/users/LCSNCL83A18X999X/messages?offset=0&filter={"tag":{"match":"scadenze appuntamenti -deleted -noticed"}}&limit=50``` si otterrà il seguente risultato:
-```
-[
-    {
-        "id": "4c081248-2264-4bc9-ab4b-6d622c4cf43c",
-        "bulk_id": "4c081248-2264-4bc9-ab4b-6d622c4cf43c",
-        "user_id": "LCSNCL83A18X999X",
-        "email": {},
-        "sms": {
-            "phone": "00393487982645",
-            "content": "Messaggio di test trusted da http://tst-notify-sanita.csi.it/notifysan-mb"
-        },
-        "push": {},
-        "mex": {
-            "title": "Messaggio di test da http://tst-notify-sanita.csi.it/notifysan-mb",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida posuere nulla quis malesuada. Etiam id est vitae ipsum fermentum tristique tincidunt id lectus. Maecenas."
-        },
-        "io": {},
-        "tag": "scadenze,pagamenti",
-        "timestamp": "2021-04-27T15:06:51.000Z",
-        "sender": "notify_be"
-    },
-    {
-        "id": "4b5ea4d9-9e2f-439c-b429-b38564c6a43b",
-        "bulk_id": "4b5ea4d9-9e2f-439c-b429-b38564c6a43b",
-        "user_id": "LCSNCL83A18X999X",
-        "email": {},
-        "sms": {
-            "phone": "00393487982645",
-            "content": "Messaggio di test trusted da http://tst-notify-sanita.csi.it/notifysan-mb"
-        },
-        "push": {},
-        "mex": {
-            "title": "Messaggio di test da http://tst-notify-sanita.csi.it/notifysan-mb",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida posuere nulla quis malesuada. Etiam id est vitae ipsum fermentum tristique tincidunt id lectus. Maecenas."
-        },
-        "io": {},
-        "tag": "scadenze,pagamenti",
-        "timestamp": "2021-04-27T15:04:35.000Z",
-        "sender": "notify_be"
-    }
-]
-```
+I messaggi sono consultabili attraverso diversi criteri come ad esempio ruolo, collocazione dell'utente o applicazione inviante.
 
 #### Ottenere un messaggio specifico di un utente
 Per ottenere un messaggio specifico di un cittadino occorre invocare la risorsa ```/api/<version>/users/{user_id}/messages/{uuid}``` usando il verbo **GET**.
@@ -352,6 +292,10 @@ Ad esempio invocando **PUT** ```/api/v1/users/LCSNCL83A18X999X/status``` con il 
 ]
 ```
 Si otterrano in risposta gli stessi messaggi.
+
+Per dire che un messaggio è letto si può più semplicemente richiamare la **PUT** /api/v1/users/LCSNCL83A18X999X/messages/{{message_id}}```
+
+
 
 ## Authors  
 CSI Piemonte

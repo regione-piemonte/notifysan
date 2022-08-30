@@ -1,0 +1,27 @@
+{
+  "db": {
+    "host": "dbs-notifysan-tst-001p.site01.nivolapiemonte.it",
+    "database": "NOTIFYSANDB",
+    "max": 20,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 5000,
+    "schema": "unpmex"
+  },
+  "mb": {
+    "queues": {
+      "messages": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/queues/messages:mex",
+      "events": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/topics/events"
+    }
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "/appserv/unp/logs/mexconsumer.log"
+      }
+    }
+  },
+  "appdynamics": {
+      "proxyHost": "podto1-proxy.site01.nivolapiemonte.it",
+      "proxyPort": "3128"
+  }
+}

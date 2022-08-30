@@ -1,0 +1,24 @@
+{
+  "name": "preferences",
+  "version": "1.0.0",
+  "description": "Manage the user preferences about the channels ( email,sms,push) he wants to use to be contacted",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "cd src && node preferences.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "escape-html": "^1.0.3",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "heapdump": "^0.3.15",
+    "request": "^2.88.2",
+    "underscore": "^1.12.0"
+  }
+}

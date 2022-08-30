@@ -1,0 +1,19 @@
+{
+  "sms": {
+    "reply_detail": "errors",
+    "encoding": "7bit",
+    "TTL": {
+      "standard": 86400,
+      "trusted": 3600
+    },
+    "priority": {
+      "standard": 4,
+      "trusted": 8
+    },
+    "send_url": "http://gateway-sms.csi.it/cgi-bin/client/pSmsRequest.cgi"
+  },
+  "app_name": "smsconsumer",
+  "log4js": {
+    "pm2": true
+  }
+}

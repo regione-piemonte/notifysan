@@ -1,0 +1,36 @@
+#!/bin/bash
+
+. $HOME/.bash_profile;
+
+DESTINATARI=/appserv/unp/script/destinatari
+
+DB_HOST=${EVENTS_DB_HOST}
+DB_USER=${EVENTS_DB_USER}
+DB_PASSWORD=${EVENTS_DB_PASSWORD}
+DB_DB=${EVENTS_DB_DATABASE}
+
+if [ $(date +"%H%M") -eq "0000" ];
+then
+    rm notified_service.txt
+    touch notified_service.txt
+fi
+
+QUERY="SELECT * FROM stats WHERE counter > 30 and TYPE = 'SYSTEM_ERROR' and date = '$(date +%Y%m%d)';"
+# questa sotto qualcosa torna, ogni tanto
+#QUERY="SELECT * FROM stats WHERE TYPE = 'SYSTEM_ERROR' and date = '20190108'"
+
+#PGPASSWORD=xxxx psql -A -F " " -q -t -h dbs-notify-tst-001p.site02.nivolapiemonte.it -d NOTIFICATOREDB -U unpevents -c "SELECT * FROM stats WHERE counter > 30 and TYPE = 'SYSTEM_ERROR' and date = '20200623';"
+
+PGPASSWORD=$DB_PASSWORD psql -A -F " " -q -t -h $DB_HOST -d $DB_DB -U $DB_USER -c "$QUERY" | while read -r sender date source type counter;
+do
+     if grep -Fxq $sender notified_service.txt;
+     then
+        echo "$sender: servizio gia notificato"
+     else
+        echo "Subject:${ENVIRONMENT}: SYSTEM_ERROR Alert per il servizio: $sender" | tee -a mail.txt
+        echo "La piattaforma di ${ENVIRONMENT} notifica che $sender ha generato $counter SYSTEM_ERROR in data $(date +%Y-%m-%d)" | tee -a mail.txt
+        cat mail.txt | /usr/sbin/sendmail -f noreply.notify@csi.it $(cat DESTINATARI)
+        rm mail.txt
+        echo $sender >> notified_service.txt
+     fi
+done

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $HOME/.bash_profile;
+
+MACHINE_NAME=$(hostname)
+if [[ $MACHINE_NAME == *-mb0* ]]
+then
+   echo "checking for mb"
+   curl  http://localhost:8080/api/v1/queues/messages:mexx   -H 'Content-Type: application/json'   -H 'x-authentication: eC/N9YLVhQQ7uiOcSSsbOYWVdjVMGySedBAtMVFGj9h3hRVu83HivM8TFgjTjQOVFxGtdkuo2ptA/IenbxcxhMtbC2onXeLPBPFUHGUyn8hlOPcWWXJqDs3ekSR2CsbuQVe9I9dkOcVkFhQChsvlpvPXmPUwXx2Wd6kAYsgaNbwl6nAI7UeIEyx6uBM1Pt5dmK1T1Ou//h2AGnq+yfxu2/yKW0FM92L+Fr8/vk8F4AvG/Ris+/W8/bKYE6tIAZ0Xlcl+kYzu8PDLyDH+8Ax6izfJ7jo6Im8l0bS+rLnEbeOYnxhpbeT7+0LrfnNtxISuPgtvOvSlb+hPyz5ne6KIMktuVBkjYrWPhnAqd4X1lRVVBQcNCAVVSTa79+zCT99U7Kz8q7z4zEwdISZYZmzUJCrfyLF3JaBWvqF3DpKadGOs9uWXDA1V+Km/oAD8yZDdABjO6qicXYpP8rUnJAZFSAWG2RfRCPzFaL3GfmNPARj973iZ55mDYqkNYcqKveqlKOeBFKqg9u3pm7K2KcYquIKwIJAjlAeyFM2kVrzoeNCMAHao6zRPRQFqC8S39iVJfPf/PwsVSAazKOVHg+PQ5JBdUCvAKpkCgt7MBIUVxEeNIpp+A6yXxKyw+GmwASkgxKk0HUbqZZRSlvYV4jcX2fjcNlAWNswVsBMiU3WiVgzLg5mWJ3tqEHGTdXwX58JZu16SMXwwmPGVIL9I4R3nBAOZGI3TyCIUaloJfHqRNhoQ83ZU30R3QyfyHm6/QqTlLRhQCXQH0Mqm5HOwwUVZWWMg9K2AB0sOgKWiO+fByiUQh98r8H1AdRwvOky+sUn95NzUOYuDJ4Eq7/5xw2fAN/tEwXFhNxY13NR7LbAlBFMDPU5R/m/5AwfSI6Lbw+965OjaTxV5v9wMTkyRfLfBKVZV1RifKuyVTXFVtxrz5m5gK1jgWQ5lwOui39ixXuy5bXuC3XRuNQ9taEcLcSOiw+wseW6OiJPOSv63rFpg/ToxEAXho25TppRfO/85bxoA5ozEgG3TqGe8AU/1UeKQXTcAolfUVhmYGXf/ONXxN4c='
+fi

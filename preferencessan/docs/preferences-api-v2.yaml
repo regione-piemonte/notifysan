@@ -1,0 +1,775 @@
+openapi: 3.0.1
+info:
+  title: Preferences
+  description: Preferences
+  version: v2
+servers:
+  - url: http://tst-notify.csi.it/notify-preferences/api/v2
+    description: Test server (uses test data)
+  - url: http://notify.csi.it/notify-preferences/api/v2
+    description: Production server (uses live data)
+security:
+  - CustomJWT: [] 
+tags:
+- name: user
+  description: user
+- name: preferences
+  description: user's preferences
+- name: services
+  description: services
+paths:
+  /services:
+    get:
+      tags:
+      - services
+      description: Get list of services
+      parameters:
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |
+          * all services with a tag: `{ "tags": { "ci": "sanita" } }`
+          * all services with more tags: `{ "tags": { "match": "+sanita +referti" } }`
+          * all services that has one tag but not the other tag: `{ "tags": { "match": "+sanita -deleted" } }`
+          * all services that doesn't have a tag: `{ "tags": { "not_match": "deleted" } }`
+          * all services that have tag1 or tag2, but not tag3: `{ "tags": { "match": "tag1 tag2 -tag3" } }`
+        schema:
+          type: string
+          default: '{}'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        500:
+          description: Internal Server Error
+  /users/{user_id}/contacts:
+    get:
+      tags:
+      - user
+      summary: Get contacts of user
+      description: Get all contacts of the user
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+    put:
+      tags:
+      - user
+      summary: Save user contacts
+      description: Save user contacts
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Object that contains the user contacts. N.B. sms needs country
+          code, identified by 00 + country code. Ex. italian mobile number (00393472485362)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutUser'
+        required: false
+      responses:
+        200:
+          description: User successfully created/updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutUserResponse'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        412:
+          description: The user terms of service must be setted before the user contacts
+        500:
+          description: Internal Server Error
+      x-codegen-request-body-name: contacts
+  /users/{user_id}/preferences/{service_name}:
+    get:
+      tags:
+      - preferences
+      description: Get preferences of the user for the specified service
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: service_name
+        in: path
+        description: The service name
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferencesService'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+    put:
+      tags:
+      - preferences
+      description: Save user preferences for the specified service
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: service_name
+        in: path
+        description: The service name
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Object that contains the user contacts
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutUserPreferencesService'
+        required: false
+      responses:
+        200:
+          description: User successfully created/updated
+          content:
+            text/html:
+              schema:
+                type: string
+                example: OK
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        500:
+          description: Internal Server Error
+      x-codegen-request-body-name: contacts
+  /users/{user_id}/preferences:
+    get:
+      tags:
+      - preferences
+      description: Get preferences of the user for all services
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                      description: unique identifier of preference
+                    user_id:
+                      type: string
+                      description: user id
+                    service_name:
+                      type: string
+                      description: service name
+                    channels:
+                      type: string
+                      description: list of channels selected as preferences, separated
+                        by comma
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+    put:
+      tags:
+      - preferences
+      description: Save user preferences for multiple services
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Object that contains the user contacts
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+        required: false
+      responses:
+        200:
+          description: User successfully created/updated
+          content:
+            text/html:
+              schema:
+                type: string
+                example: OK
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        500:
+          description: Internal Server Error
+      x-codegen-request-body-name: contacts
+  /users/{user_id}/contacts/{service_name}:
+    get:
+      tags:
+      - preferences
+      description: get user's contacts for the specified service.
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: service_name
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactPreference'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+  /users/{user_id}:
+    delete:
+      tags:
+      - user
+      description: delete the user with the specified user_id and his preferences
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+  /terms:
+    get:
+      tags:
+      - terms
+      description: get the last version of updated terms of service
+      parameters:
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+                description: terms of service in html format
+                example: |
+                  <h3>SERVIZIO “PREFERENZE DI NOTIFICA”</h3>
+                  Gentile cittadina/cittadino,<br />
+                    il servizio “Preferenze di notifica” è un servizio offerto dalla  Pubblica Amministrazione piemontese con l’intento di rendere più agevole, immediata  ed efficiente la comunicazione tra cittadini e Amministrazioni come previsto  del Decreto Legislativo 82/2005 e s.m.i. “Codice dell’Amministrazione Digitale”  (utilizzo delle tecnologie dell’informazione).
+        500:
+          description: Internal Server Error
+  /users/{user_id}/terms:
+    get:
+      tags:
+      - terms
+      description: get accepted terms by user
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Terms'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        404:
+          description: User not found
+        500:
+          description: Internal Server Error
+    put:
+      tags:
+      - terms
+      description: accepted terms of the user
+      parameters:
+      - name: user_id
+        in: path
+        description: The user id
+        required: true
+        schema:
+          type: string
+      - name: X-Request-ID
+        in: header
+        description: request id
+        schema:
+          type: string
+      - name: Shib-Iride-IdentitaDigitale
+        in: header
+        description: citizen's cf or, if client application is enabled, cf of the agent who acts in behalf of the citizen
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Object that contains a property hash that represent the MD5 hash
+          value of the terms of service
+        content:
+          application/json:
+            schema:
+              required:
+              - hash
+              type: object
+              properties:
+                hash:
+                  type: string
+                  example: bf281a8048c67c91c3a5a5e2b855d618
+        required: false
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Terms'
+        400:
+          description: Invalid input
+        401:
+          description: Unauthorized
+        403:
+          description: The token has been blacklisted.
+        500:
+          description: Internal Server Error
+      x-codegen-request-body-name: document_hash
+components:
+  schemas:
+    Service:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: service unique identifier
+        name:
+          type: string
+          description: service name
+        channels:
+          type: string
+          description: available channels of service
+        tags:
+          type: string
+          description: tags of service
+      example:
+        uuid: 54f11506-e147-4ea7-b61f-d5fd2acef853
+        name: rol_nuovo_referto
+        tags: sanita
+        channels: push,email,sms
+    User:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: user_id
+        sms:
+          type: string
+          description: sms number. N.B. sms needs country code, identified by 00 +
+            country code. Ex. italian mobile number (00393472485362)
+        phone:
+          type: string
+          description: phone number
+        email:
+          type: string
+          description: email address
+        push:
+          type: object
+          properties: {}
+          description: A hashmap with dynamics keys. The key is the service name and
+            the value is an array of push token
+        language:
+          type: string
+          description: language
+        interests:
+          type: string
+          description: interests of user
+        terms:
+          type: object
+          properties:
+            accepted_at:
+              type: string
+              description: when terms were accepted
+            hashed_terms:
+              type: string
+              description: hash MD5 of accepted terms
+          description: terms of service
+      example:
+        user_id: DGNDRN
+        sms: "00393377658456"
+        phone: ""
+        email: prova@consulenti.csi.it
+        push:
+          prof_citt:
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yNRnb
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yN333
+        language: it_IT
+        interests: ""
+        terms:
+          accepted_at: 2021-03-01T10:38:13.000Z
+          hashed_terms: bf281a8048c67c91c3a5a5e2b855d618
+    PutUser:
+      type: object
+      properties:
+        sms:
+          type: string
+          description: sms number. N.B. sms needs country code, identified by 00 +
+            country code. Ex. italian mobile number (00393472485362)
+        phone:
+          type: string
+          description: phone number
+        email:
+          type: string
+          description: email address
+        push:
+          type: object
+          properties: {}
+          description: A hashmap with dynamics keys. The key is the service name and
+            the value is an array of push token
+        language:
+          type: string
+          description: language
+        interests:
+          type: string
+          description: interests of user
+      example:
+        sms: "00393377658456"
+        phone: ""
+        email: prova@consulenti.csi.it
+        push:
+          prof_citt:
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yNRnb
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yN333
+        language: it_IT
+        interests: ""
+    PutUserResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+        sms:
+          type: string
+          description: sms number. N.B. sms needs country code, identified by 00 +
+            country code. Ex. italian mobile number (00393472485362)
+        phone:
+          type: string
+          description: phone number
+        email:
+          type: string
+          description: email address
+        push:
+          type: object
+          properties: {}
+          description: A hashmap with dynamics keys. The key is the service name and
+            the value is an array of push token
+        language:
+          type: string
+          description: language
+        interests:
+          type: string
+          description: interests of user
+      example:
+        user_id: DGNDRN
+        sms: "00393377658456"
+        phone: ""
+        email: prova@consulenti.csi.it
+        push:
+          prof_citt:
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yNRnb
+          - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yN333
+        language: it_IT
+        interests: ""
+    ContactPreference:
+      type: object
+      properties:
+        sms:
+          type: string
+          description: sms number. N.B. sms needs country code, identified by 00 +
+            country code. Ex. italian mobile numberitaly (00393472485362)
+        email:
+          type: string
+          description: email address
+        push:
+          type: array
+          description: push tokens
+          items:
+            type: string
+      example:
+        push:
+        - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yNRnb
+        - dkMBmrbsNZg:APA91bHfP22izgJnhfjjmfIW8qa8Fe0BRekZ-W9i4ztiNdmYHQhc4K9htgRQu8PZSI7JiM5RnV4QGxuZLSUsxeJWhKqj77guPwhgnQJM2QKMutO9RgUxucpXBsfthAh4QrLX2X5yNRnb
+        email: prova@consulenti.csi.it
+        sms: "00393399604732"
+    UserPreferencesService:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: the service uuid
+        user_id:
+          type: string
+          description: the user id
+        service name:
+          type: string
+          description: the service name
+        channels:
+          type: string
+          description: list of channels separated by comma
+      example:
+        uuid: a9b37377-9822-46a1-af5a-0cc799d65cdc
+        user_id: LCSNCL83A18X999X
+        service_name: notify_be
+        channels: push,email,sms
+    PutUserPreferencesService:
+      required:
+      - channels
+      type: object
+      properties:
+        channels:
+          type: string
+          description: list of channels separated by comma
+      example:
+        channels: push,email,sms
+    UserPreferences:
+      type: object
+      properties:
+        service_name:
+          type: string
+          description: name of service ':' list of channels
+      description: A hashmap with dynamics keys, name of the service ':' channels
+        as value
+      example:
+        rol_nuovo_referto: sms,push
+        bollo_auto: email,push
+    Terms:
+      type: object
+      properties:
+        accepted_at:
+          type: string
+          description: (type date) whene user accepted them
+        hashed_terms:
+          type: string
+          description: md5 value of the accepted terms
+      description: Contains information about the date of accepted terms and the hashed
+        value of terms
+      example:
+        accepted_at: 2018-12-05T14:37:48.000Z
+        hashed_terms: c9e70f9f25e2cbe163df42fd772139ba
+  securitySchemes:
+    CustomJWT:
+      type: apiKey
+      name: x-authentication
+      description: the notify platform authorization token
+      in: header

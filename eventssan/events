@@ -1,0 +1,4 @@
+cd /appserv/unp/notify/events/src/jobs
+node events.js >/dev/null 2>&1 &
+cd /appserv/unp/notify/events/src
+node messages_result.js >/dev/null 2>&1 &

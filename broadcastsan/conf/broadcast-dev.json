@@ -1,0 +1,93 @@
+{
+  "db": {
+    "host": "dbs-notify-dev-001p",
+    "user": "unppreferences",
+    "password": "mypass",
+    "database": "NOTIFICATOREDB_DEV",
+    "max": 20,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 5000,
+    "schema": "unppreferences"
+  },
+  "security": {
+    "secret": "dev",
+    "crypto": {
+      "password": "dev"
+    }
+  },
+  "send_scheduled":{
+    "not_sent_messages_path":"/appserv/unp/not_sent_messages",
+    "sent_messages_path":"/appserv/unp/sent_messages"
+  },
+  "mb": {
+    "request_limit": 2000000,
+      "queues": {
+          "messages": "http://dev-notify.csi.it/notify-mb/api/v1/topics/messages",
+          "events": "http://dev-notify.csi.it/notify-mb/api/v1/topics/events",
+          "templates": "http://dev-notify.csi.it/notify-mb/api/v1/keys/template:email"
+      },
+    "token":"YF6E7N5muTBWYRkQaLjSIBgQFtCxKObkWnbW0xVd2EW1U9+pKiUi5zyM6lrrKpOFb28wdkr3nuxEKfxGwIgGrEqL5RHtH0falRrp+b9fv5YkqsI2M2Gy+jExmD+SGB6EaGg+0QUph4amV3h6qKHcdhCdtqwhTlYAtu829eq7bKwNkaVEqsTNQ7Rz/MDYR8k71f1gR9lFuONVf6jzNTjrw4Fenq0Jinev7w9OYTIE+nbHVC2nD4ole1NnZBh7OIK9s6dJMjKRCoExH9bILibiYL9Gq3A8lRhvKJ1MRzTiOZxafkka9zP6ltkcd68qTt4wv5WS93m40oFQOh6GrVKW6eIVbXVGk2B1UT6YLKE4cUjvJGgDuUH6ygzrB99+3MvtjS9EKRYm0QNBQlCDS6oHNn8Kbmbr42WMBtPVBsgZez4U1NJuNDheuE89nFPI1172RIx+5UPnje7GIzuwQOugyBsEqkbO/mRdkASUggCQgHY/8BXaDS2ETjkUZ40p6mARCyf9Bmsq0EcYzcJc1bfOaQ=="
+  },
+  "log4js": {
+    "appenders": {
+      "consoleAppender": {
+        "type": "console",
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      },
+      "fileAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/broadcast.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      },
+      "schedFileAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/send-scheduled.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      },
+      "schedNotificationFileAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/send-scheduled-notification.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      }
+
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "fileAppender"
+        ],
+        "level": "debug"
+      },
+      "send-sched": {
+        "appenders": [
+          "schedFileAppender"
+        ],
+        "level": "debug"
+      },
+      "sendScheduledNotifications": {
+        "appenders": [
+          "schedNotificationFileAppender"
+        ],
+        "level": "debug"
+      }
+    }
+  }
+}

@@ -1,0 +1,1199 @@
+{
+	"info": {
+		"name": "mex-dev",
+		"_postman_id": "5eec6f5b-7210-f140-e3cf-bfaad1e9dfe8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb5335b2-b62b-4f34-8c0c-4cf7e20f36db",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"isArray\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.be.an('array')",
+							"});",
+							"",
+							"pm.test(\"checkUser\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(e => pm.expect(e.user_id).to.be.eql(\"DGNDRN\"));",
+							"});",
+							"",
+							"pm.test(\"checkLimit\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.below(6)",
+							"});",
+							"",
+							"pm.test(\"checkSort\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(var i=0;i<4;i++) pm.expect(jsonData[i].id < jsonData[i+1].id).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"checkUser\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(e => pm.expect(e.bulk_id).to.be.eql(\"provaaaaabulk112233\"));",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages?filter={\"bulk_id\":{\"eq\":\"provaaaaabulk112233\"}}&limit=5&offset=0&sort=%2Bid",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "{\"bulk_id\":{\"eq\":\"provaaaaabulk112233\"}}",
+							"equals": true
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "sort",
+							"value": "%2Bid",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user messages invalid token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b2794ca-aa3c-4d30-9baa-389617905a84",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"invalid signature\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev",
+						"disabled": true
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages?limit=5&offset=0&sort=%2Bid",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "sort",
+							"value": "%2Bid",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user messages security context not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a4b76c9-f5b9-4c46-80e6-1d8aa34c4503",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Security context not valid\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDR"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages?limit=5&offset=0&sort=%2Bid",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "sort",
+							"value": "%2Bid",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user messages permissions not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbb1e75d-c9ea-4e0f-aef1-398f4ef23095",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the permission .*/);",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbImFkbWluIiwiYmFja2VuZCJdLCJwcmVmZXJlbmNlcyI6eyJwdXNoIjoiQUFBQVdteGNmelk6QVBBOTFiSElVWjc4UkJUSGFKLWlLTk96V1F3LXk4OElUNUl6eFAwMUdFd3prRVpWVXowM01hay0yQ0h2SldRZENhdER5ak1UYWRIc1BLVWEwZXd6SjBzZjFUQVRGQUhXeHdLWjRzYWFYXzBYOHM1R1VITTBubVBtLTFXS3ItV0JfTjVjYjJIVmtUSWoiLCJlbWFpbCI6Im9vQGFzZC5jb20iLCJtZXgiOiJhc2RhZCIsInNtcyI6eyJ1c2VybmFtZSI6Im5vdGlmeSIsInBhc3N3b3JkIjoibWVnYWxvbWFuXzE4IiwicHJvamVjdF9jb2RlIjoiMzcifX19.ywv8-lBmzmpQ_6RHCU6i6-4Gdz6gn1SQrJx9DD05D1A",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbImFkbWluIiwiYmFja2VuZCJdLCJwcmVmZXJlbmNlcyI6eyJwdXNoIjoiQUFBQVdteGNmelk6QVBBOTFiSElVWjc4UkJUSGFKLWlLTk96V1F3LXk4OElUNUl6eFAwMUdFd3prRVpWVXowM01hay0yQ0h2SldRZENhdER5ak1UYWRIc1BLVWEwZXd6SjBzZjFUQVRGQUhXeHdLWjRzYWFYXzBYOHM1R1VITTBubVBtLTFXS3ItV0JfTjVjYjJIVmtUSWoiLCJlbWFpbCI6Im9vQGFzZC5jb20iLCJtZXgiOiJhc2RhZCIsInNtcyI6eyJ1c2VybmFtZSI6Im5vdGlmeSIsInBhc3N3b3JkIjoibWVnYWxvbWFuXzE4IiwicHJvamVjdF9jb2RlIjoiMzcifX19.dd51FpYnc5T6Nv5QphghFopcs3oaiUOhJVKGG0uDgfE",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages?limit=5&offset=0&sort=%2Bid",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "sort",
+							"value": "%2Bid",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user messages applications not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b59dc057-e4fa-4f1e-a9fe-29d3ce8b0fbe",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the application.*/);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbImFkbWluIiwiYmFja2VuZCJdLCJwcmVmZXJlbmNlcyI6eyJwdXNoIjoiQUFBQVdteGNmelk6QVBBOTFiSElVWjc4UkJUSGFKLWlLTk96V1F3LXk4OElUNUl6eFAwMUdFd3prRVpWVXowM01hay0yQ0h2SldRZENhdER5ak1UYWRIc1BLVWEwZXd6SjBzZjFUQVRGQUhXeHdLWjRzYWFYXzBYOHM1R1VITTBubVBtLTFXS3ItV0JfTjVjYjJIVmtUSWoiLCJlbWFpbCI6Im9vQGFzZC5jb20iLCJtZXgiOiJhc2RhZCIsInNtcyI6eyJ1c2VybmFtZSI6Im5vdGlmeSIsInBhc3N3b3JkIjoibWVnYWxvbWFuXzE4IiwicHJvamVjdF9jb2RlIjoiMzcifX19.QQlKS0pBibqibVG-qF7S30hLRiYjQAclGLsAE2HFCfo",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbImFkbWluIiwiYmFja2VuZCJdLCJwcmVmZXJlbmNlcyI6eyJwdXNoIjoiQUFBQVdteGNmelk6QVBBOTFiSElVWjc4UkJUSGFKLWlLTk96V1F3LXk4OElUNUl6eFAwMUdFd3prRVpWVXowM01hay0yQ0h2SldRZENhdER5ak1UYWRIc1BLVWEwZXd6SjBzZjFUQVRGQUhXeHdLWjRzYWFYXzBYOHM1R1VITTBubVBtLTFXS3ItV0JfTjVjYjJIVmtUSWoiLCJlbWFpbCI6Im9vQGFzZC5jb20iLCJtZXgiOiJhc2RhZCIsInNtcyI6eyJ1c2VybmFtZSI6Im5vdGlmeSIsInBhc3N3b3JkIjoibWVnYWxvbWFuXzE4IiwicHJvamVjdF9jb2RlIjoiMzcifX19.V1GPvES9nZooXYhuaWSRiI0UNp4S9VJJOehEL_ZfQaY",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages?limit=5&offset=0&sort=%2Bid",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"equals": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "sort",
+							"value": "%2Bid",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96a9a9f1-5334-45db-bddc-4b219b95229b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"check json\", function () {",
+							"    pm.response.to.have.jsonBody(\"user_id\", \"DGNDRN\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message invalid token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4993e278-8920-448e-82d6-67aab90718bf",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"invalid signature\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev",
+						"disabled": true
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message security context",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53b45ebb-3117-47cb-a3cd-8ff7ef8df67b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Security context not valid\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDR"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message permissions not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e284ea8-8b44-40aa-8fa6-5d34a3b38975",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the permission .*/);",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.4hriH4vO8AWal1OSvrLmdahaaX_GK7u8QM9Eh1MD9lg",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.Ett2iruyv_Pu6lCjPnXlNmyX2LzbNoR8Q2eabTS6L4Y",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message applications not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b38f753-5d14-4e34-b227-dd9479513971",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the application.*/);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.ozR-IrmgBeC3Z3FYLmZ_A-2kDJSSnw5vVuPxh7TUW6U",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.Dss1eF1bqNVugXc6lwyJPLGQE9qRLK53e3fzHWvq3nc",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user specific message not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"id": "30f3ed67-289f-43dd-b90f-3f1fb68a74ab",
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sms\": \"123123\",\n    \"phone\": \"1234124\",\n    \"email\": \"sssss\",\n    \"push\": \"22222\",\n    \"language\": \"it\",\n    \"interests\": \"asd,re\"\n}"
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/4def2dc5-8c57-4419-850f-988f8d7d35d0",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"4def2dc5-8c57-4419-850f-988f8d7d35d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit specific user message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "819235eb-1896-4518-8e20-d2b6980a6799",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"checkUser\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user_id).to.be.eql(\"DGNDRN\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit specific user message invalid token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5789301f-316e-419f-a2c1-76b0ace82a45",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"invalid signature\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev",
+						"disabled": true
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit specific user message security context",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c444575a-7147-4ca1-b462-05e67b3c2dda",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"Security context not valid\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.5lAn0TX7b_vpFb8MRAKeifSt7vNPHcwIXWLAaKU3WjE",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.EzmLkc59I8YrTZ43Qx3rvqNIyLxu_3PB5biMI476YPI",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDR"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit specific user message permissions not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8afe684e-bea9-4f62-8b3c-dffd1eb71b10",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the permission .*/);",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.4hriH4vO8AWal1OSvrLmdahaaX_GK7u8QM9Eh1MD9lg",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsIm1leCIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.Ett2iruyv_Pu6lCjPnXlNmyX2LzbNoR8Q2eabTS6L4Y",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit specific user message applications not valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26755aee-5d60-4d62-8a50-7de652f4e4ed",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"tests['match'] = jsonData.message && jsonData.message.match(/^User doesn't have the application.*/);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.ozR-IrmgBeC3Z3FYLmZ_A-2kDJSSnw5vVuPxh7TUW6U",
+						"description": "dev"
+					},
+					{
+						"key": "x-authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJhcHByZWZlcnRpIiwiY2xpZW50X3V1aWQiOiIxYzIzZmUxYy0xMDhkLTQxOTQtOWM3OS1hNTU1NjVjMDYxMTYiLCJwcmVmZXJlbmNlX3NlcnZpY2VfbmFtZSI6InJvbF9udW92b19yZWZlcnRvIiwiZXhwIjoyNTM0MDIyMTA4MDAwMDAsImlhdCI6MTUxOTgyMjcwNDQzOCwiYXBwbGljYXRpb25zIjpbIm5vdGlmeSIsInByZWZlcmVuY2VzIl0sInBlcm1pc3Npb25zIjpbInVzZXIiLCJhZG1pbiIsImJhY2tlbmQiXSwicHJlZmVyZW5jZXMiOnsicHVzaCI6IkFBQUFXbXhjZnpZOkFQQTkxYkhJVVo3OFJCVEhhSi1pS05PeldRdy15ODhJVDVJenhQMDFHRXd6a0VaVlV6MDNNYWstMkNIdkpXUWRDYXREeWpNVGFkSHNQS1VhMGV3ekowc2YxVEFURkFIV3h3S1o0c2FhWF8wWDhzNUdVSE0wbm1QbS0xV0tyLVdCX041Y2IySFZrVElqIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQiLCJzbXMiOnsidXNlcm5hbWUiOiJub3RpZnkiLCJwYXNzd29yZCI6Im1lZ2Fsb21hbl8xOCIsInByb2plY3RfY29kZSI6IjM3In19fQ.Dss1eF1bqNVugXc6lwyJPLGQE9qRLK53e3fzHWvq3nc",
+						"description": "tst",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Shib-Iride-IdentitaDigitale",
+						"value": "DGNDRN"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://dev-apifirst.ecosis.csi.it/notify-mex/api/v1/users/DGNDRN/messages/provabulk112233",
+					"protocol": "http",
+					"host": [
+						"dev-apifirst.ecosis.csi.it"
+					],
+					
+					"path": [
+						"notify-mex",
+						"api",
+						"v1",
+						"users",
+						"DGNDRN",
+						"messages",
+						"provabulk112233"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

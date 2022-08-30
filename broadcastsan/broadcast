@@ -1,0 +1,2 @@
+cd /appserv/unp/notify/broadcast/
+node broadcast.js >/dev/null 2>&1 &

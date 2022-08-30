@@ -1,0 +1,51 @@
+{
+  "db": {
+    "host": "dbs-notify-dev-001p",
+    "user": "unpmex",
+    "password": "mypass",
+    "database": "NOTIFICATOREDB_DEV",
+    "max": 20,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 5000,
+    "schema": "unpmex"
+  },
+  "commons": {
+    "path": "/appserv/unp/notify/commons/src"
+  },
+  "security": {
+    "secret": "dev",
+    "crypto": {
+      "password": "dev"
+    },
+    "passphrase":"dev",
+    "blacklist":{
+      "url":"http://dev-notify.csi.it/notify-mb/api/v1/keys/blacklist"
+    }
+  },
+  "mb": {
+    "queues": {
+      "events": "http://dev-notify.csi.it/notify-mb/api/v1/topics/events",
+      "audit": "http://dev-notify.csi.it/notify-mb/api/v1/topics/audit"
+    },
+    "token":"YF6E7N5muTBWYRkQaLjSIBgQFtCxKObkWnbW0xVd2EW1U9+pKiUi5zyM6lrrKpOFc+EBz2XNrF0q+ckMENlF7eGzkWccBviccom6KZSwvODmWAtYfBkOi9NhBWnl4eF6nmaSo8niatwUfOPX2v59gtq9vu8yvafG4MUJmqscHeiFCkATQjNF2gF3rZ89fHZFsG0eVTdSe4gRXD1C7XZdAm83sZPiPkUYooBy/cpaPoimd8U/rjJh0W8Eqd9KdebLA55pjQHKz3DsDJe68aWGo1eyFZAGwuh15GBRVZmOWwFD3TR5vT/OyMCUMGfrGRYS2xwoRnY9muKpiFb0ORnNhIXz5+yQtwQAKtoTMyG1aifGc752IOSekVrduwLkQXuyJxGEP77nBUiIAlpN5MB4LtpMnbPcIcI9cQ5hPMJVNE2vu3iZINHtlZUlDdieDHk+oVX6s9v2Nq6w98XZuCNeRWsjCf9AHTqQhp9fAgSq2x97UiyNVzgTAh/H7KcTbua+RTtobc2cJCcgzbXYJZpl4w=="
+  },
+  "preferences": {
+    "url": "http://dev-notify.csi.it/notify-preferences/api/v2",
+    "token": "YF6E7N5muTBWYRkQaLjSIBgQFtCxKObkWnbW0xVd2EW1U9+pKiUi5zyM6lrrKpOFc+EBz2XNrF0q+ckMENlF7eGzkWccBviccom6KZSwvODmWAtYfBkOi9NhBWnl4eF6nmaSo8niatwUfOPX2v59gtq9vu8yvafG4MUJmqscHeiFCkATQjNF2gF3rZ89fHZFsG0eVTdSe4gRXD1C7XZdAm83sZPiPkUYooBy/cpaPoimd8U/rjJh0W8Eqd9KdebLA55pjQHKz3DsDJe68aWGo1eyFZAGwuh15GBRVZmOWwFD3TR5vT/OyMCUMGfrGRYS2xwoRnY9muKpiFb0ORnNhIXz5+yQtwQAKtoTMyG1aifGc752IOSekVrduwLkQXuyJxGEP77nBUiIAlpN5MB4LtpMnbPcIcI9cQ5hPMJVNE2vu3iZINHtlZUlDdieDHk+oVX6s9v2Nq6w98XZuCNeRWsjCf9AHTqQhp9fAgSq2x97UiyNVzgTAh/H7KcTbua+RTtobc2cJCcgzbXYJZpl4w==",
+    "basicauth": {
+      "username": "pagavacuke",
+      "password": "gaswithecl"
+    }
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "/appserv/unp/logs/mex.log"
+      }
+    }
+  },
+  "appdynamics": {
+      "proxyHost": "podto2-proxy.site02.nivolapiemonte.it",
+      "proxyPort": "3128"
+  }
+}

@@ -1,0 +1,84 @@
+#!/bin/bash
+
+. $HOME/.bash_profile;
+
+LOGFILE=/tmp/check.log
+DESTINATARI=/appserv/unp/script/destinatari
+
+rm -f $LOGFILE
+
+# check file system
+echo "------------- check filesystem --------------"
+df -h |grep -v Use |grep -v tmpfs | awk -v date="$(date +"%Y/%m/%d-%H:%M:%S")" '{if(strtonum(substr($5, 0, length($5)-1))>80) level="ERROR"; else level="OK"; print date " " level " " $1 " - filesystem al " $5}'| tee -a $LOGFILE
+
+# check processi
+echo "------------- check processes --------------"
+for ELEMENT in redis-server.*6379 sentinel
+do
+
+        LEVEL=OK
+        MSG="processo attivo"
+        N=$(ps aux | grep -v grep| grep -v $PWD | grep -v "java" | grep -v "/bin/sh" | grep "$ELEMENT"  | wc -l)
+        if [ $N -ne 1 ]
+        then
+                LEVEL=ERROR
+                MSG="processo NON attivo"
+        fi
+        echo "$(date '+%Y/%m/%d-%H:%M:%S') $LEVEL $ELEMENT - $MSG" |tee -a $LOGFILE
+done
+
+# check queues
+echo "------------- check queues --------------"
+for Q in $(cat queues.txt)
+do
+        L=$(redis-cli -a redis llen $Q | awk '1')
+        LEVEL=OK
+        MSG="$Q $L"
+        if [ $L -gt 100 ]
+        then
+                LEVEL=ERROR
+        fi
+        echo "$(date '+%Y/%m/%d-%H:%M:%S') $LEVEL $MSG" |tee -a $LOGFILE
+done
+
+# check memory
+echo "------------- check memory ----------------"
+LEVEL=OK
+MSG="memoria di redis sotto il 50%"
+M=$(redis-cli -a redis info memory | awk -F ':' '$1 == "used_memory" {um=$2} $1 == "maxmemory" { tm=$2 } END { print (um/tm > 0.5) }')
+if [ $M -eq 1 ]
+then
+        LEVEL=ERROR
+        MSG="memoria di redis sopra il 50%"
+fi
+
+echo "$(date '+%Y/%m/%d-%H:%M:%S') $LEVEL $MSG" |tee -a $LOGFILE
+
+# invio mail
+echo "-------------- preparazione report ------------------"
+cut -d ' ' -f 2,3 $LOGFILE | sort >/tmp/new.log
+cut -d ' ' -f 2,3 /tmp/old_check.log | sort >/tmp/old.log
+rm /tmp/report
+touch /tmp/report
+
+comm -2 -3 /tmp/new.log /tmp/old.log | while read r
+do
+        grep "$r\ " $LOGFILE >>/tmp/report
+done
+
+if [ $(cat /tmp/report | wc -l) -ne 0  ]
+then
+        echo "invio della mail ..."
+        echo "From: $(hostname)" >/tmp/mail
+        echo "Subject:Report da $(hostname)" >>/tmp/mail
+        echo >>/tmp/mail
+        cat /tmp/report >>/tmp/mail
+        echo "." >>/tmp/mail
+        cat /tmp/mail
+fi
+if [ -f /tmp/mail ]
+then
+        cat /tmp/mail | /usr/sbin/sendmail -f $(hostname)@csi.it $(grep -v "#" $DESTINATARI)
+        rm -f /tmp/mail
+fi
+mv $LOGFILE /tmp/old_check.log

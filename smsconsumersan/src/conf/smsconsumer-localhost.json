@@ -1,0 +1,30 @@
+{
+  "mb": {
+    "queues": {
+      "messages": "http://localhost:8080/api/v1/queues/messages:sms",
+      "events": "http://localhost:8080/api/v1/topics/events"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwicHJlZmVyZW5jZV9zZXJ2aWNlX25hbWUiOiJzbXNjb25zdW1lciIsImV4cCI6MjUzNDAyMjEwODAwMDAwLCJpYXQiOjE1MTk4MjI3MDQ0MzgsImFwcGxpY2F0aW9ucyI6eyJtYiI6WyJlbnF1ZXVlIiwiZGVxdWV1ZSJdLCJtZXgiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXSwicHJlZmVyZW5jZXMiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXX0sInByZWZlcmVuY2VzIjp7InB1c2giOiIxMjNlZDJkIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQifX0.mAAyPEIsqN_EGz77rUhVCtNk7o_ncFmJq0rq0QmQI28"
+  },
+  "preferences": {
+    "url": "http://localhost:9092/api/v1/users",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwicHJlZmVyZW5jZV9zZXJ2aWNlX25hbWUiOiJzbXNjb25zdW1lciIsImV4cCI6MjUzNDAyMjEwODAwMDAwLCJpYXQiOjE1MTk4MjI3MDQ0MzgsImFwcGxpY2F0aW9ucyI6eyJtYiI6WyJlbnF1ZXVlIiwiZGVxdWV1ZSJdLCJtZXgiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXSwicHJlZmVyZW5jZXMiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXX0sInByZWZlcmVuY2VzIjp7InB1c2giOiIxMjNlZDJkIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQifX0.mAAyPEIsqN_EGz77rUhVCtNk7o_ncFmJq0rq0QmQI28",
+    "urlV1": "http://localhost:9092/api/v1"
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "../../logs/smsconsumer.log"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "consoleAppender",
+          "fileAppender"
+        ],
+        "level": "debug"
+      }
+    }
+  }
+}

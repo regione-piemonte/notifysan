@@ -1,0 +1,109 @@
+{
+  "db": {
+    "preferences": {
+      "host": "dbs-notifysan-tst-001p.site01.nivolapiemonte.it",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unppreferences"
+    },
+    "events": {
+      "host": "dbs-notifysan-tst-001p.site01.nivolapiemonte.it",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpevents"
+    },
+    "audit": {
+      "host": "dbs-notifysan-tst-001p.site01.nivolapiemonte.it",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpaudit"
+    },
+    "mex": {
+      "host": "dbs-notifysan-tst-001p.site01.nivolapiemonte.it",
+      "database": "NOTIFYSANDB",
+      "max": 20,
+      "idleTimeoutMillis": 30000,
+      "connectionTimeoutMillis": 5000,
+      "schema": "unpmex"
+    }
+  },
+    "mb": {
+      "request_limit": 2000000,
+        "queues": {
+            "messages": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/topics/messages",
+            "events": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/topics/events",
+            "templates": "http://tst-notifysan.sanita.csi.it/notifysan-mb/api/v1/keys/template:email"
+        }
+    },
+    "send_scheduled":{
+      "not_sent_messages_path":"/appserv/unp/not_sent_messages",
+      "sent_messages_path":"/appserv/unp/sent_messages"
+    },
+    "log4js": {
+      "appenders": {
+        "consoleAppender": {
+          "type": "console",
+          "layout": {
+            "type": "pattern",
+            "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+          }
+        },
+        "fileAppender": {
+          "type": "file",
+          "filename": "/appserv/unp/logs/broadcast.log",
+          "maxLogSize": 5242880,
+          "compress": true,
+          "layout": {
+            "type": "pattern",
+            "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+          }
+        },
+        "schedFileAppender": {
+          "type": "file",
+          "filename": "/appserv/unp/logs/send-scheduled.log",
+          "maxLogSize": 5242880,
+          "compress": true,
+          "layout": {
+            "type": "pattern",
+            "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+          }
+        },
+        "schedNotificationFileAppender": {
+          "type": "file",
+          "filename": "/appserv/unp/logs/send-scheduled-notification.log",
+          "maxLogSize": 5242880,
+          "compress": true,
+          "layout": {
+            "type": "pattern",
+            "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+          }
+        }
+      },
+      "categories": {
+        "default": {
+          "appenders": [
+            "fileAppender"
+          ],
+          "level": "debug"
+        },
+        "send-sched": {
+          "appenders": [
+            "schedFileAppender"
+          ],
+          "level": "debug"
+        },
+        "sendScheduledNotifications": {
+          "appenders": [
+            "schedNotificationFileAppender"
+          ],
+          "level": "debug"
+        }
+      }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "app_name": "broadcast",
+    "server_port": 8083,
+    "log4js": {
+        "pm2": true
+    }
+}

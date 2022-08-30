@@ -1,0 +1,49 @@
+#!/bin/bash
+
+. $HOME/.bash_profile;
+
+cd /appserv/unp/notify/commons/src/alert
+DESTINATARI=/appserv/unp/script/destinatari
+NEW_CHECK=/tmp/new-check.log
+OLD_CHECK=/tmp/old-check.log
+touch $OLD_CHECK
+touch $NEW_CHECK
+
+echo "check file system"
+df -h |grep -v Use | awk '{if(strtonum(substr($5, 0, length($5)-1))>80) print "ERROR " $1 " - filesystem sopra soglia"; else print "OK " $1 " - filesystem sotto soglia" }' |awk '!x[$0]++'| tee -a $NEW_CHECK
+
+echo "check processi"
+for ELEMENT in sentinel
+do
+
+        LEVEL=OK
+        MSG="processo attivo"
+        N=$(ps aux | grep -v grep| grep -v $PWD | grep -v "java" | grep -v "/bin/sh" | grep -v awk | grep "$ELEMENT"  | wc -l)
+        if [ $N -ne 1 ]
+        then
+                LEVEL=ERROR
+                MSG="processo NON attivo"
+        fi
+        echo "$LEVEL $ELEMENT - $MSG" | tee -a $NEW_CHECK
+done
+echo "check log files"
+grep '\[ERROR\]' /appserv/unp/logs/*.log | tee -a $NEW_CHECK >/dev/null
+
+
+echo "-------------------------"
+sort -u $NEW_CHECK > /tmp/x.log
+mv /tmp/x.log $NEW_CHECK
+rm -f /tmp/report
+echo "From: $(hostname)" | tee -a /tmp/report
+echo "Subject:Report da $(hostname)" | tee -a /tmp/report
+echo | tee -a /tmp/report
+comm -13 $OLD_CHECK $NEW_CHECK | tee -a /tmp/report
+echo . | tee -a /tmp/report
+mv $NEW_CHECK $OLD_CHECK
+
+# invio mail
+if [ $(cat /tmp/report | wc -l) -ne 4  ]
+then
+        echo invio email
+        cat /tmp/report | /usr/sbin/sendmail -f $(hostname)@csi.it $(cat $DESTINATARI)
+fi

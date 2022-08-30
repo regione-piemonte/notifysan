@@ -1,0 +1,23 @@
+{
+  "name": "messagebroker",
+  "version": "1.0.0",
+  "description": "Message Broker wrapper for redis",
+  "main": "mb.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "heapdump": "^0.3.15",
+    "ioredis": "^3.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.3.0",
+    "utf8": "^3.0.0",
+    "uuid": "^3.4.0",
+    "validator": "^9.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "cd src && node messagebroker.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

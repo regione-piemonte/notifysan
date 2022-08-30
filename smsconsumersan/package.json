@@ -1,0 +1,23 @@
+{
+  "name": "smsconsumer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "consumer of the queue the contains messages to be sent through sms",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {
+    "http-parser-js": "^0.4.13",
+    "js2xmlparser": "^3.0.0",
+    "log4js": "^6.3.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "cd src && node smsconsumer.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

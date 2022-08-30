@@ -1,0 +1,6 @@
+{
+    "app_name": "mexconsumer",
+    "log4js": {
+        "pm2": true
+    }
+}

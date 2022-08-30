@@ -1,0 +1,25 @@
+{
+  "name": "events_system",
+  "version": "1.0.0",
+  "description": "Component composed by events ( API ) and eventsconsumer",
+  "main": "events.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/messages_result.js & node src/jobs/events.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "escape-html": "^1.0.3",
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "uuid": "^8.3.2"
+  }
+}
