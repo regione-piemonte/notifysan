@@ -165,6 +165,15 @@ end
 PushConsumer--  rest -->Firebase["firebase"]
 PushConsumer--  rest  -->Preferences["preferences"]
 ```
+
+#### Broadcast
+Batch per l'invio massivo di mail
+
+#### Commons
+Libreria js inclusa in tutti i progetti 
+
+#### Notify db
+script di inizializzazione del db
   
 ## Rilascio chiavi di accesso JWT alla piattaforma
 Il sistema ha la necessità di controllare e tracciare le attività dei client che lo usano. Per soddisfare questi requisiti ad ogni client è assegnato un token JWT che include le informazioni necessarie per svolgere tutte le funzioni richieste. Tale token, la cui conservazione e riservatezza sono a cura del client, è rilasciato al fruitore all'atto della sottoscrizione al servizio NOTIFY.
