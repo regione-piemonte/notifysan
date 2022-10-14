@@ -1,0 +1,6 @@
+{
+  "app_name": "audit",
+  "log4js": {
+    "pm2": true
+  }
+}

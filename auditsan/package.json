@@ -1,0 +1,22 @@
+{
+  "name": "audit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "cd src && node audit.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "log4js": "^6.3.0",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}
