@@ -305,6 +305,19 @@ Si otterrano in risposta gli stessi messaggi.
 Per dire che un messaggio è letto si può più semplicemente richiamare la **PUT** /api/v1/users/LCSNCL83A18X999X/messages/{{message_id}}```
 
 
+## Versioning
 
-## Authors  
-CSI Piemonte
+Viene utilizzata la metodologia Semantic Versioning (http://semver.org).
+
+## Authors
+
+Gli autori sono indicati nei file README.md dei singoli componenti.
+  
+## License
+
+SPDX-License-Identifier: EUPL-1.2
+See the LICENSE.txt file for details
+
+## Copyrights
+
+© Copyright CSI Piemonte - 2020
