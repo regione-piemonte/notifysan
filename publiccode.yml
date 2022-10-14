@@ -1,0 +1,95 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - digital-citizenship
+  - feedback-and-reviews-management
+  - instant-messaging
+  - email-marketing
+dependsOn:
+  open:
+    - name: Node.js
+      optional: false
+      version: ''
+      versionMax: 12.18.3
+      versionMin: 10.4.1
+    - name: PostgreSQL
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: 9.6.10
+description:
+  it:
+    features:
+      - 'Invio notifiche in multicanalità (email, SMS, push notification, IO APP)'
+      - Gestione contatti e preferenze
+      - Archiviazione dei messaggi ricevuti
+    genericName: NotifySan
+    longDescription: >
+      NOTIFYSAN é una piattaforma di notifica messaggi  dispiegata che
+      abilita le comunicazioni verso i
+      medici. La piattaforma
+      favorisce l’interazione su canalità tradizionali quali  email, sms e di
+      nuova generazione ad esempio push-notification su Mobile  App. 
+
+
+      La piattaforma si articola nelle seguenti componenti che sono state
+      progettate per consentire un'esperienza d'uso ottimizzata per i servizi
+      applicativi che aderiscono a NOTIFY:
+
+
+      - Notificatore: Motore per la gestione delle notifiche messaggi
+
+
+      - Preferences: Contatti digitali dell'utente e preferenze di notifica per
+      singolo servizio applicativo o verso ruoli di utenti (ad esempio il medico delle TO5)
+
+
+      - Message Store: Archivio delle notifiche personali ricevute.
+    shortDescription: Piattaforma di notifica messaggi 
+developmentStatus: stable
+intendedAudience:
+  countries:
+    - it
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: true
+  riuso:
+    codiceIPA: csi_piem
+landingURL: 'https://github.com/regione-piemonte/notifysan'
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: CSI Piemonte
+  repoOwner: CSI Piemonte
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: false
+maintenance:
+  contacts:
+    - email: marco.giraudo@csi.it
+      name: Marco Giraudo
+    - email: pasquale.daloiso@csi.it
+      name: Pasquale Daloiso
+  type: internal
+name: NotifySan
+platforms:
+  - web
+releaseDate: '2022-11-07'
+softwareType: standalone/backend
+softwareVersion: '1.0'
+url: 'https://github.com/regione-piemonte/notifysan'
+usedBy:
+  - Regione Piemonte
+  - Città di Torino
