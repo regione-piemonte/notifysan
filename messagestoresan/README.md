@@ -7,7 +7,7 @@ I dati sono salvati su DB [PostgreSQL](https://www.postgresql.org/), creare lo s
 
 ## Installazione
 
-* Compilare i sorgenti utilizzando apache ant, viene generato un file .tar (es: messagestoresrv-2.0.1.tar)
+* Compilare i sorgenti utilizzando apache ant, viene generato un file .tar (es: messagestoresrv-1.0.0.tar)
 * Estrarre il file .tar nella directory /appserv/unp/notify/messagestore
 * Eseguire il comando npm install per installare le dipendenze
 * Eseguire lo script messagestore
