@@ -23,7 +23,7 @@ dependsOn:
 description:
   it:
     features:
-      - 'Invio notifiche in multicanalità (email, SMS, push notification, IO APP)'
+      - 'Invio notifiche in multicanalità (email, SMS, push notification)'
       - Gestione contatti e preferenze
       - Archiviazione dei messaggi ricevuti
     genericName: NotifySan
@@ -66,12 +66,12 @@ it:
     pagopa: false
     spid: true
   riuso:
-    codiceIPA: csi_piem
+    codiceIPA: r_piemon
 landingURL: 'https://github.com/regione-piemonte/notifysan'
 legal:
   license: EUPL-1.2
-  mainCopyrightOwner: CSI Piemonte
-  repoOwner: CSI Piemonte
+  mainCopyrightOwner: Regione Piemonte
+  repoOwner: Regione Piemonte
 localisation:
   availableLanguages:
     - it
@@ -89,7 +89,7 @@ platforms:
 releaseDate: '2022-11-07'
 softwareType: standalone/backend
 softwareVersion: '1.0'
-url: 'https://github.com/regione-piemonte/notifysan'
+url: 'https://github.com/regione-piemonte/notifysan.git'
 usedBy:
   - Regione Piemonte
   - Città di Torino
