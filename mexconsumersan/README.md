@@ -8,3 +8,6 @@ Consumer per il progetto Notify (Piattaforma di notifica regionale).
 * Estrarre il file .tar nella directory /appserv/unp/notify/mexconsumer
 * Eseguire il comando npm install per installare le dipendenze
 * Eseguire lo script mexconsumer
+
+## Differenze da notificatore cittadini
+Salvataggio del messaggio molto modificato in quanto bisogna salvarsi i destinatari scaricati dal configuratore del messaggio

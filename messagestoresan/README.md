@@ -11,3 +11,7 @@ I dati sono salvati su DB [PostgreSQL](https://www.postgresql.org/), creare lo s
 * Estrarre il file .tar nella directory /appserv/unp/notify/messagestore
 * Eseguire il comando npm install per installare le dipendenze
 * Eseguire lo script messagestore
+
+## Differenze da notificatore cittadini
+Reperimento dei messaggi modificato in quanto aggiunti criteri di ricerca dei messaggi.
+La ricerca si basa anche su un database differente

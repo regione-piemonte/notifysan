@@ -12,3 +12,7 @@ I dati sono salvati su DB [PostgreSQL](https://www.postgresql.org/), creare lo s
 * Estrarre il file .tar nella directory /appserv/unp/notify/preferences
 * Eseguire il comando npm install per installare le dipendenze
 * Eseguire lo script preferences
+
+## Differenze da notificatore cittadini
+Cambio della gestione delle preferenze dell'utente. 
+Non più presenti sul database ma presenti su applicativo configuratore
