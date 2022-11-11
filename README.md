@@ -322,4 +322,4 @@ See the LICENSE.txt file for details
 
 © Copyright CSI Piemonte - 2020
 
-@ Copyright Regioen Piemonte - 2022
+@ Copyright Regione Piemonte - 2022
