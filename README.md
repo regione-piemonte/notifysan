@@ -10,9 +10,18 @@ La piattaforma si articola delle seguenti componenti che sono state progettate p
 
 </br>
 
-| Notificatore [NOTIFY]                                    | Message Store [MS]                          |
-|-------------------------------------------------|---------------------------------------------|
-| Motore per la gestione delle notifiche messaggi |  Archivio delle notifiche personali ricevute |
+Auditsan: traccia le attività degli utenti che operano nella suite Notify<br/>
+Broadcastsan: invia in maniera batch i messaggi<br/>
+Commonsan: ha gli script in comune ai diversi componenti<br/>
+Emailconsumersan: spedisce le mail<br/>
+Eventsan: accumula gli eventi accaduti nel sistema<br/>
+Messagebrokersan: ha il compito di configurare le code di redis<br/>
+Messagestoresan: recupera i messaggi inviati alla piattaforma Notify<br/>
+Mexconsumersan: salva i messaggi inviati alla piattaforma Notify<br/>
+Notifysandb: struttura db<br/>
+Preferencessan: gestore delle preferenze della suite <br/>
+Pushconsumersan: spedisce le notifiche push <br/>
+Smsconsumersan: spedisce sms<br/>
 
 Le preferenze nel notificatore sanità rispetto al notificatore cittadini si trovano su applicativo configuratore dove si trovano le anagrafiche degli utenti raggiungibili dalle notifiche.
 

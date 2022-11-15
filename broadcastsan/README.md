@@ -1,6 +1,7 @@
 ## Descrizione
 
-Il progetto _audit_ ha il compito di tracciare le attività degli utenti che operano nella suite Notify (Piattaforma di notifica regionale).
+Il progetto _broadcastsan_ ha il compito di inviare in maniera batch i messaggi
+Il progetto _broadcastsan_ contiene un elenco di batch per gestire la storicizzazione dei dati
 
 ## Configurazione
 

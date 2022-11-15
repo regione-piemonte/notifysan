@@ -1,6 +1,6 @@
 ## Descrizione
 
-Il progetto _broadcastsan_ contiene un elenco di batch per gestire la storicizzazione dei dati
+Il progetto _eventsan_ accumula gli eventi accaduti nel sistema
 
 ## Configurazione
 I dati sono salvati su DB [PostgreSQL](https://www.postgresql.org/), creare lo schema `unpaudit` ed eseguire lo script di creazione delle tabelle contenuto in `notifysandb` 
