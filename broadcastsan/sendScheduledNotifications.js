@@ -23,90 +23,98 @@ const encrypt = function (text) {
 async function run(){
     logger.debug("getting broadcasts Messages from table");
     //get messages from tables 
-    let select_query = queryBuilder.select("*").table("broadcast_batch").filter({
-        "stato": {
-            "eq": "NUOVO"
-        }
-    }).page(10,0).sql;
-    logger.debug("sql: "+select_query);
-    var select_result = await db.preferences.execute(select_query);
-    //logger.debug("result: "+select_result);
-    var uuids = [];
-    var uuidsError = [];
-    let promises = [];
-    let promise = null;
-    
-    select_result.forEach(element => {
-        //decript message
-        let stringBody=decript(element.full_message);
-        let jsonBody = JSON.parse(stringBody);
-        logger.debug("jsonBody: "+stringBody);
-        //modify the message with destination
-        jsonBody.uuid=element.uuid;
-        jsonBody.payload.id=element.uuid;
-       
-        delete jsonBody.payload.ruolo;
-        delete jsonBody.payload.collocazione;
-        delete jsonBody.payload.listaUtenti;
-        delete jsonBody.payload.applicazione;
-        jsonBody.payload.user_id=decript(element.fiscal_code);
-        if(!jsonBody.user){
-            jsonBody.user={};
-        }
-        if(!jsonBody.user.preferences){
-            jsonBody.user.preferences = {};
-        }
-        if(element.email && jsonBody.payload.email){
-            let emailDecripted = decript(element.email);
-            logger.debug("email: "+emailDecripted);
-            jsonBody.payload.email.to=emailDecripted;
-            if(!jsonBody.user.preferences.email){
-                //from
-                jsonBody.user.preferences.email={};
+    let query = "SELECT VALORE from batch_config where code = 'NUMERO_MESSAGGI_DA_INVIARE'";
+    db.preferences.execute(query)
+    .then( async  (configuration) =>{
+        let select_query = queryBuilder.select("*").table("broadcast_batch").filter({
+            "stato": {
+                "eq": "NUOVO"
             }
-        }
-        if(element.telephone && jsonBody.payload.sms){
-            let telephoneDecrypted = decript(element.telephone);
-            logger.debug("telephone: "+telephoneDecrypted);
-            jsonBody.payload.sms.phone=telephoneDecrypted;
-            if(!jsonBody.user.preferences.sms){
-                jsonBody.user.preferences.sms={};
+        }).page(configuration[0].valore,0).sql;
+        logger.debug("sql: "+select_query);
+        var select_result = await db.preferences.execute(select_query);
+        //logger.debug("result: "+select_result);
+        var uuids = [];
+        var uuidsError = [];
+        var uiids_to_prepare=[];
+        let promises = [];
+        let promise = null;
+        select_result.forEach(element => {
+            uiids_to_prepare.push(element.uuid);
+        });
+        setStatusBroadcast(uiids_to_prepare, 'TO_PREPARE');
+        select_result.forEach(element => {
+            //decript message
+            let stringBody=decript(element.full_message);
+            let jsonBody = JSON.parse(stringBody);
+            logger.debug("jsonBody: "+stringBody);
+            //modify the message with destination
+            jsonBody.uuid=element.uuid;
+            jsonBody.payload.id=element.uuid;
+        
+            delete jsonBody.payload.ruolo;
+            delete jsonBody.payload.collocazione;
+            delete jsonBody.payload.listaUtenti;
+            delete jsonBody.payload.applicazione;
+            jsonBody.payload.user_id=decript(element.fiscal_code);
+            if(!jsonBody.user){
+                jsonBody.user={};
             }
-        }
-        if(element.push_token && jsonBody.payload.push){
-            logger.debug("push: "+jsonBody.user.preferences.push);
-            jsonBody.payload.push.token=element.push_token.split(',');
-            if(!jsonBody.user.preferences.push){
-                jsonBody.user.preferences.push={};
+            if(!jsonBody.user.preferences){
+                jsonBody.user.preferences = {};
             }
-        }
-        jsonBody.payload.correlation_id=element.correlation_id
-        jsonBody.payload.trusted=true;
-        jsonBody.payload.batch=true;
-        logger.debug("jsonBody trasformed: "+JSON.stringify(jsonBody));
-        let encryptedBodyTrasformed= encrypt(JSON.stringify(jsonBody))
-        setFullMessageSentBroadcast(element.uuid,encryptedBodyTrasformed)
-        //send new message
-        promise = send(element.token,jsonBody);
-        if(promise!=null){
-            promises.push(promise);
+            if(element.email && jsonBody.payload.email){
+                let emailDecripted = decript(element.email);
+                logger.debug("email: "+emailDecripted);
+                jsonBody.payload.email.to=emailDecripted;
+                if(!jsonBody.user.preferences.email){
+                    //from
+                    jsonBody.user.preferences.email={};
+                }
+            }
+            if(element.telephone && jsonBody.payload.sms){
+                let telephoneDecrypted = decript(element.telephone);
+                logger.debug("telephone: "+telephoneDecrypted);
+                jsonBody.payload.sms.phone=telephoneDecrypted;
+                if(!jsonBody.user.preferences.sms){
+                    jsonBody.user.preferences.sms={};
+                }
+            }
+            if(element.push_token && jsonBody.payload.push){
+                logger.debug("push: "+jsonBody.user.preferences.push);
+                jsonBody.payload.push.token=element.push_token.split(',');
+                if(!jsonBody.user.preferences.push){
+                    jsonBody.user.preferences.push={};
+                }
+            }
+            jsonBody.payload.correlation_id=element.correlation_id
+            jsonBody.payload.trusted=true;
+            jsonBody.payload.batch=true;
+            logger.debug("jsonBody trasformed: "+JSON.stringify(jsonBody));
+            let encryptedBodyTrasformed= encrypt(JSON.stringify(jsonBody))
+            setFullMessageSentBroadcast(element.uuid,encryptedBodyTrasformed)
+            //send new message
+            promise = send(element.token,jsonBody);
+            if(promise!=null){
+                promises.push(promise);
+            }
+        });
+        if(promises.length!=0){
+            Promise.all(promises).then((responses) => {
+                responses.forEach((response, index) => {
+                    if(response=="message added to the queue 'messages'"){
+                        uuids.push(select_result[index].uuid)
+                    }else{
+                        uuidsError.push(select_result[index].uuid)
+                    }
+                });
+                //update message state
+                setStatusBroadcast(uuids, 'SENT');
+                setStatusBroadcast(uuidsError, 'ERROR');
+            });
+            
         }
     });
-    if(promises.length!=0){
-        Promise.all(promises).then((responses) => {
-            responses.forEach((response, index) => {
-                if(response=="message added to the queue 'messages'"){
-                    uuids.push(select_result[index].uuid)
-                }else{
-                    uuidsError.push(select_result[index].uuid)
-                }
-            });
-            //update message state
-            setStatusBroadcast(uuids, 'SENT');
-            setStatusBroadcast(uuidsError, 'ERROR');
-        });
-        
-    }
     
 }
 

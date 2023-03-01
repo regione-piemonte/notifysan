@@ -86,11 +86,17 @@ app.use(function(req, res, next){
 });
 
 var prefix = "/api/v1/users/";
+var prefix_mex = "/api/v1/message-users/"
 
 if (conf.security) {
     if(conf.security.blacklist) obj.blacklist(app);
 
     var permissionMap = [];
+    permissionMap.push({
+        url: prefix_mex + ":mex_id",
+        method: "get",
+        permissions: ["read"]
+    });
     permissionMap.push({
         url: prefix + ":user_id/messages/:mex_id",
         method: "get",
@@ -194,9 +200,6 @@ function getOffset(url, offset, new_offset) {
 
 }
 
-/**
- * get a specific message from a user
- */
 app.get(prefix + ':user_id/messages/:mex_id', async function (req, res, next) {
 
     if(servicesEnforcedTags === null) return next({type: "system_error", status: 500, message: "internal error"});
@@ -252,6 +255,84 @@ app.get(prefix + ':user_id/messages/:mex_id', async function (req, res, next) {
         return next({type: "system_error", status: 500, message: err});
     }
 });
+
+/**
+ * get a specific message from a user
+ */
+app.get(prefix_mex + ':mex_id', async function (req, res, next) {
+
+    if(servicesEnforcedTags === null) return next({type: "system_error", status: 500, message: "internal error"});
+
+    if(!uuid.validate(req.params.mex_id)) {
+        logger.warn("not a valid uuid");
+        return next({
+            type: "client_error",
+            status: 400,
+            message: escape(req.params.mex_id) + " is not a valid message id"
+        });
+    }
+
+    let service_name = req.user.preference_service_name;
+    try {
+        let customFilter = null;
+        if(servicesEnforcedTags.get(service_name)) customFilter = servicesEnforcedTags.get(service_name);
+
+        var sql = "select *, messages.id as m_id from messages  "+
+        " where 1=1 and messages.id = '"+req.params.mex_id+"'";
+        
+        if(customFilter){
+            sql+=  " AND (" + customFilter + ")";
+        }
+        logger.debug("sql: ",sql);
+    } catch (err) {
+        return next({type: "client_error", status: 400, message: err});
+    }
+
+    try {
+        var result = await db.execute(sql);
+
+        if (!result || result.length === 0) {
+            return next({
+                type: "client_error",
+                status: 404,
+                message: "the user " + escape(req.params.user_id) + " tried to retrieve the message " + escape(req.params.mex_id) + " that doesn't exist"
+            });
+        }
+    } catch (err) {
+        return next({type: "db_error", status: 500, message: err});
+    }
+
+    let message = result[0];
+    try {
+        let messageToReturn = toMessage(message);
+        let destinations = await loadMultipleDestinations(req.params.mex_id);
+        messageToReturn.destinations = destinations;
+        return next({type: "ok", status: 200, message: messageToReturn});
+    } catch (err) {
+        logger.error("system error: ", err.message);
+        return next({type: "system_error", status: 500, message: err});
+    }
+});
+
+
+async function loadMultipleDestinations(uuid){
+    let options = {
+        url: conf.preferences.url + "/broadcast_batch/messages/batch/"+uuid,
+        method: "GET",
+        headers: {
+            'x-authentication': conf.preferences.token,
+            'Authorization': 'Basic ' + Buffer.from(conf.preferences.basicauth.username.trim() + ":" + conf.preferences.basicauth.password.trim()).toString('base64')
+        },
+        json: true
+    };
+    try{
+        let destinazioni = await req_promise(options);
+        logger.debug("loaded destinations: ", destinazioni);
+        return destinazioni;
+    }catch(e){
+        logger.error("error in loading destinations: ", e.message);
+    }
+}
 
 /**
  * Cache per il recupero del numero di records totali (select count(*))

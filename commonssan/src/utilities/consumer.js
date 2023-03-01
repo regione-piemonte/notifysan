@@ -74,7 +74,7 @@ module.exports = function (conf, logger, eh, message_section, checkFunction, che
             for(let body of bodies)
             {
                 try {
-                    logger.debug("message from jms: "+body);
+                    logger.debug("message from jms: "+JSON.stringify(body));
                     if (body.payload.dry_run) {
                         logger.debug("the message has dry_run set");
                         continue;
@@ -175,7 +175,8 @@ module.exports = function (conf, logger, eh, message_section, checkFunction, che
             method:"POST",
             headers: {
                 'x-authentication': conf.preferences.token,
-                'msg_uuid': bodyPar.payload.id
+                'msg_uuid': bodyPar.payload.id,
+                'X-Forwarded-For': bodyPar.forwardFor,
             },
             body: bodyPar,
             json: true
@@ -311,7 +312,7 @@ module.exports = function (conf, logger, eh, message_section, checkFunction, che
         }
 
         var optionsUserPreferences = {
-            url: conf.preferences.urlV1 + "/broadcast_batch/preferences/" +  body.user.preference_service_name + "/user/" +body.payload.user_id+"/applicazione/"+body.payload.applicazione,
+            url: conf.preferences.urlV1 + "/broadcast_batch/preferences/" +  body.user.preference_service_name + "/user/" +body.payload.user_id+"/applicazione/"+body.payload.applicazione+"/"+ body.forwardFor,
             headers: {
                 'x-authentication': conf.preferences.token,
                 'msg_uuid': body.payload.id

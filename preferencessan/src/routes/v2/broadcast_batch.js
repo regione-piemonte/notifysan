@@ -10,6 +10,10 @@ module.exports = function (conf, obj) {
         if (!text || text === null) return null;
         return crypto.encrypt(text, conf.security.secret)
     };
+    const decript = function (text) {
+        if (!text || text === null) return null;
+        return crypto.decrypt(text, conf.security.secret)
+    };
 
     const db = obj.db();
     const eh = obj.event_handler();
@@ -22,8 +26,8 @@ module.exports = function (conf, obj) {
     /**
      *  get preferences from configuratore
      */
-    router.get('/preferences/:fruitore/user/:userId/applicazione/:applicazione', async function (req, res, next) {
-
+    router.get('/preferences/:fruitore/user/:userId/applicazione/:applicazione/:forwardFor', async function (req, res, next) {
+        var result = {};
         try {
             logger.debug("get preferences from configuratore: ",conf.configuratore.urlPreferences);
             let fruitore = req.params.fruitore;
@@ -36,7 +40,9 @@ module.exports = function (conf, obj) {
                 url: conf.configuratore.urlPreferences,
                 method: 'POST',
                 headers: {
-                    'Authorization': auth
+                    'Authorization': auth,
+                    'X-Forwarded-For': req.params.forwardFor,
+                    'X-Codice-Servizio':'NOTIFYSAN'
                 },
                 body: {
                     "codice_applicazione": applicazione,
@@ -49,22 +55,24 @@ module.exports = function (conf, obj) {
             logger.debug("get preferences from configuratore 2: ",JSON.stringify(options));
             preferences = await request(options);
             logger.info("preferences: ",Object.keys(preferences.body))
+            let uuid= req.headers['msg_uuid']
+            
+            if(preferences && preferences.body && preferences.body[0]){
+                saveSingleOnBroadcastBatch(uuid, userId, preferences.body[0].numero_di_telefono, preferences.body[0].email, preferences.body[0].push)
+                if(preferences.body[0].email){
+                    result.email = preferences.body[0].email;
+                }
+                if(preferences.body[0].numero_di_telefono){
+                    result.sms = preferences.body[0].numero_di_telefono
+                }
+                if(preferences.body[0].push){
+                    result.push = preferences.body[0].push
+                }
+            } 
         } catch (err) {
             logger.error(err.message);
             eh.system_error("error getting preferences from configuratore", err.message);
             return next({type: "system_error", status: 500, message: err});
-        }
-        var result = {};
-        if(preferences && preferences.body && preferences.body[0]){
-            if(preferences.body[0].email){
-                result.email = preferences.body[0].email;
-            }
-            if(preferences.body[0].numero_di_telefono){
-            result.sms = preferences.body[0].numero_di_telefono
-            }
-            if(preferences.body[0].push){
-                result.push = preferences.body[0].push
-            }
         }
         next({type: "ok", status: 200, message: result});
     });
@@ -109,13 +117,15 @@ module.exports = function (conf, obj) {
                     method: 'POST',
                     headers: {
                         'Authorization': auth,
-                        'Accept-Encoding': 'gzip, deflate, br'
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'X-Forwarded-For': req.body.forwardFor,
+                        'X-Codice-Servizio':'NOTIFYSAN'
                     },
                     body: payloadToSend,
                     json: true
                     , gzip: true
                 };
-        
+                logger.debug("get preferences from configuratore 1: ",JSON.stringify(options));
                 preferences = await request(options,(error, response, bodyConfiguratore) => messagesBatchCallback(error, response, bodyConfiguratore, req));
             }
             
@@ -138,16 +148,16 @@ module.exports = function (conf, obj) {
         if (response.statusCode >= 200 && response.statusCode<300) {
             let requestJsonBody=encrypt(JSON.stringify(req.body));
             let token = req.headers['x-authentication'];
-            result = saveOnBroadcastBatch(bodyConfiguratore, requestJsonBody, token);
+            result = saveOnBroadcastBatch(bodyConfiguratore, requestJsonBody, token, req.body.uuid);
             return next({type: "ok", status: 200, message: result});
         }else{
             return next({type: "system_error", status: 500, message: "configuratore non ha risposto in maniera corretta"});
         }
     }
 
-    async function saveOnBroadcastBatch(bodyConfiguratore, jsonBody, token){
+    async function saveOnBroadcastBatch(bodyConfiguratore, jsonBody, token, uuidParameter){
         let correlation_id = uuid();
-        let query_insert = "INSERT INTO broadcast_batch (uuid, fiscal_code, stato, full_message, token, flag_not_to_send, correlation_id, telephone, email, push_token) values ";
+        let query_insert = "INSERT INTO broadcast_batch (uuid, fiscal_code, stato, full_message, token, flag_not_to_send, correlation_id, telephone, email, push_token, uuid_provenienza) values ";
         
         bodyConfiguratore.forEach((element, idx, array) => { 
             let numero_di_telefono="null";
@@ -162,7 +172,7 @@ module.exports = function (conf, obj) {
             if(element.push!=null){
                 pushToken = "'"+element.push.trim()+"'";
             }
-            query_insert+= "('"+ uuid()+"','"+ encrypt(element.codice_fiscale)+"', 'NUOVO', '"+jsonBody+"','"+token+"',false,'"+correlation_id+"',"+numero_di_telefono +","+email+","+pushToken+")";
+            query_insert+= "('"+ uuid()+"','"+ encrypt(element.codice_fiscale)+"', 'NUOVO', '"+jsonBody+"','"+token+"',false,'"+correlation_id+"',"+numero_di_telefono +","+email+","+pushToken+", '"+uuidParameter+"')";
             if (idx !== array.length - 1){ 
                 query_insert+=", "
             }
@@ -179,5 +189,73 @@ module.exports = function (conf, obj) {
             return next({type: "db_error", status: 500, message: err});
         }
     }
+
+    async function saveSingleOnBroadcastBatch(uuid, fiscal_code, numeroTelefono, mail,tokenPush){
+  
+        let query_insert = "INSERT INTO broadcast_batch (uuid, fiscal_code, stato,  flag_not_to_send, telephone, email, push_token, uuid_provenienza) values ";
+        
+        let numero_di_telefono="null";
+        if(numeroTelefono!=null){
+            numero_di_telefono="'"+encrypt(numeroTelefono.trim())+"'";
+        }
+        let email = "null";
+        if(mail!=null){
+            email = "'"+encrypt(mail.trim())+"'";
+        }
+        let pushToken = "null";
+        if(tokenPush!=null){
+            pushToken = "'"+tokenPush.trim()+"'";
+        }
+        query_insert+= "('"+ uuid+"','"+ encrypt(fiscal_code)+"', 'SENT', true,"+numero_di_telefono +","+email+","+pushToken+", '"+uuid+"')";
+       
+        logger.info(query_insert);
+        try {
+            var result = await db.execute(query_insert);
+            
+            logger.debug("saved mex: "+result);
+           
+        } catch (err) {
+            logger.error(err.message);
+            eh.system_error("error saveSingleOnBroadcastBatch", err.message);
+        }
+    }
+
+    router.get('/messages/batch/:uuid', async function (req, res, next) {
+        try {
+            let uuid = req.params.uuid
+            var selectSql = "select * from broadcast_batch where uuid_provenienza='"+uuid+"'";
+            logger.debug("selectSql: "+selectSql);
+            let result = await db.execute(selectSql);
+            let resultApi = [];
+            result.forEach((element, idx, array) => { 
+                let fiscal_code = decript(element.fiscal_code);
+                let telephone = "";
+                if(element.telephone){
+                    telephone = decript(element.telephone);
+                }
+                let email = "";
+                if(element.email){
+                    email = decript(element.email);
+                }
+
+                let push_token = false;
+                if(element.push_token){
+                    push_token = true;
+                }
+                resultApi.push({
+                    fiscal_code:fiscal_code,
+                    telephone:telephone,
+                    email:email,
+                    push_token:push_token
+                });
+            });
+            return next({type: "ok", status: 200, message: resultApi});
+        } catch (err) {
+            if(err.errno && err.errno === 1054) return next({type: "client_error", status: 400, message: err});
+            return next({type: "db_error", status: 500, message: err});
+        }
+        
+    });
+
     return router;
 }
